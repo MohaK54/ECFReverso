@@ -41,4 +41,11 @@ public class Client extends Societe {
         }
         this.nbrEmploye = nbrEmploye;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()  +
+                " C.A : " + chiffreAffaire +
+                ", Nbr d'Employe : " + nbrEmploye;
+    }
 }

@@ -38,10 +38,12 @@ public abstract class  Societe {
     }
 
     public int getIdentifiant() {
+
         return identifiant;
     }
 
     public void setIdentifiant(int identifiant) {
+
         this.identifiant = identifiant;
     }
 
@@ -118,5 +120,19 @@ public abstract class  Societe {
 
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Id : " + identifiant +
+                ", raisonSociale : " + raisonSociale + '\'' +
+                ", numeroRue : " + numeroRue + '\'' +
+                ", nomRue : " + nomRue + '\'' +
+                ", codePostal : " + codePostal + '\'' +
+                ", ville : " + ville + '\'' +
+                ", telephone : " + telephone + '\'' +
+                ", adresseMail : " + adresseMail + '\'' +
+                ", commentaire : " + commentaire + '\'' ;
     }
 }
