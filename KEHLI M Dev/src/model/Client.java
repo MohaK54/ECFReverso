@@ -20,9 +20,28 @@ public class Client extends Societe {
     ) throws modelException {
         super(id, raisonSociale, numeroRue, nomRue, codePostal, ville, telephone, adresseMail, commentaire);
         this.setChiffreDaffaire(chiffreAffaire);
+        System.out.println(this.chiffreAffaire);
+        System.out.println(getChiffreAffaire());
         this.setNombreEmployer(nbrEmploye);
     }
 
+    public Client(int id,
+                  String raisonSociale,
+                  String numeroRue,
+                  String nomRue,
+                  String codePostal,
+                  String ville,
+                  String telephone,
+                  String adresseMail,
+                  double chiffreAffaire,
+                  int nbrEmploye
+    ) throws modelException {
+        super(id, raisonSociale, numeroRue, nomRue, codePostal, ville, telephone, adresseMail);
+        this.setChiffreDaffaire(chiffreAffaire);
+        System.out.println(this.chiffreAffaire);
+        System.out.println(getChiffreAffaire());
+        this.setNombreEmployer(nbrEmploye);
+    }
 
 
     public double getChiffreAffaire() {

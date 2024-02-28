@@ -18,12 +18,12 @@ import java.time.format.DateTimeParseException;
 public class Main {
 
 
-    public static void main(String[] args) throws modelException {
+    public static void main(String[] args) throws modelException, SQLException, IOException, daoException {
 
 
-        try {
-            // 1 - utilisateur rentre une date
-            String dateUser = JOptionPane.showInputDialog("rentrez une date");
+          try {
+           // 1 - utilisateur rentre une date
+            String dateUser = "19/08/2001";
 
             // 2 - je créer un format
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -45,19 +45,21 @@ public class Main {
                 System.out.println(" mazzaaaaal ya l'hmaaar ");
             }
 
-           /* Client client = new Client(3, "can18", "7",
+            Client client = new Client(3, "can20", "7",
                     "rue Paul Jacques", "13000",
                     "Marseille", "0781770148", "adresse@mail.com", "test",
                     2500,
-                    500);*/
-            Client client1 = new Client(4,"boulangerie","5","avenur de l'europe",
-                    "57600","Forbach","0123456789","boulangerie@mail.com","",
-                    500000,23000);
-
-            // DaoClient.create(client1);
-
+                    500);
+            Client client1 = new Client(4, "boulangerie2", "5", "avenur de l'europe",
+                "57600", "Forbach", "0123456789", "boulangerie@mail.com",
+                500000, 23000);
             JOptionPane.showMessageDialog(null, DaoClient.findAll().toArray());
             JOptionPane.showMessageDialog(null, DaoClient.findByName("Ibrahim Industrie"));
+
+
+            DaoClient.create(client1);
+
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
