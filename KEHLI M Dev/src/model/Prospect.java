@@ -15,7 +15,7 @@ public class Prospect extends Societe {
                     String nomRue, String codePostal,
                     String ville, String telephone,
                     String adresseMail, String commentaire,
-                    String dateProspection, Boolean interesse) throws modelException {
+                    LocalDate dateProspection, Boolean interesse) throws modelException {
         super(identifiant, raisonSociale, numeroRue, nomRue, codePostal, ville, telephone, adresseMail, commentaire);
         setDateProspection(dateProspection);
         setInteret(interesse);
@@ -23,20 +23,18 @@ public class Prospect extends Societe {
 
     public Prospect(int identifiant, String raisonSociale, String numeroRue, String nomRue, String codePostal,
                     String ville, String telephone, String adresseMail,
-                    String dateProspection, Boolean interesse) throws modelException {
+                    LocalDate dateProspection, Boolean interesse) throws modelException {
         super(identifiant, raisonSociale, numeroRue, nomRue, codePostal, ville, telephone, adresseMail);
         setDateProspection(dateProspection);
         setInteret(interesse);
     }
 
     public LocalDate getDateProspection() {
-        return dateProspection;
+        return this.dateProspection;
     }
 
-    public void setDateProspection(LocalDate dateProspection) throws modelException {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        this.dateProspection = dateProspection;
+    public void setDateProspection(LocalDate dateProspection) {
+            this.dateProspection = dateProspection;
     }
 
 
@@ -56,9 +54,8 @@ public class Prospect extends Societe {
 
     @Override
     public String toString() {
-        return super.toString() + "Prospect{" +
-                "dateProspection=" + dateProspection +
-                ", interet='" + interet + '\'' +
-                '}';
+        return super.toString() +
+                "date de Prospection : " + DateFormat.formatDate(getDateProspection()) +
+                ", interet : " + interet + '\'' ;
     }
 }

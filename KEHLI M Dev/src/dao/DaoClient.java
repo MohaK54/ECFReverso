@@ -4,6 +4,7 @@ import model.Client;
 import model.ListeClient;
 import model.modelException;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DaoClient {
-    public static ArrayList findAll() throws SQLException {
+    public static ArrayList findAll() throws SQLException, IOException {
         Connection connection = new Connexion().getInstance();
         Statement statement = null;
         String query =
@@ -41,6 +42,10 @@ public class DaoClient {
             }
         } catch (modelException e) {
             throw new RuntimeException(e);
+        }
+        finally {
+            connection.close();
+
         }
         return ListeClient.getClients();
     }
