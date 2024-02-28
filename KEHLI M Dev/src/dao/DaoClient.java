@@ -113,6 +113,15 @@ public class DaoClient {
         }
         statement.close();
         connection.close();
+    }
+
+    public static void update(Client client)
+    {
+
+    }
+
+    public static void delete(Client client)
+    {
 
     }
 }

@@ -1,9 +1,13 @@
+package application;
+
 import dao.Connexion;
 import dao.DaoClient;
 import dao.daoException;
 import model.Client;
 import model.Prospect;
 import model.modelException;
+import utilities.FormatLog;
+import utilities.MyLogg;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -14,15 +18,24 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
 
 public class Main {
-
+    private static FileHandler fl = null;
 
     public static void main(String[] args) throws modelException, SQLException, IOException, daoException {
 
 
           try {
-           // 1 - utilisateur rentre une date
+              fl = new FileHandler("FichierLog.log",true);
+              fl.setFormatter(new FormatLog());
+
+              MyLogg.LOGGER.setUseParentHandlers(false);
+              MyLogg.LOGGER.addHandler(fl);
+              MyLogg.LOGGER.log(Level.INFO,"Début du programme");
+
+              // 1 - utilisateur rentre une date
             String dateUser = "19/08/2001";
 
             // 2 - je créer un format
@@ -50,7 +63,7 @@ public class Main {
                     "Marseille", "0781770148", "adresse@mail.com", "test",
                     2500,
                     500);
-            Client client1 = new Client(4, "boulangerie2", "5", "avenur de l'europe",
+            Client client1 = new Client(4, "Cristalline", "5", "avenur de l'europe",
                 "57600", "Forbach", "0123456789", "boulangerie@mail.com",
                 500000, 23000);
             JOptionPane.showMessageDialog(null, DaoClient.findAll().toArray());
@@ -59,7 +72,7 @@ public class Main {
 
             DaoClient.create(client1);
 
-
+            MyLogg.LOGGER.log(Level.INFO,"Fin du programme");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
