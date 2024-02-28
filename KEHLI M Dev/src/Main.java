@@ -1,5 +1,7 @@
 import dao.Connexion;
 import dao.DaoClient;
+import dao.daoException;
+import model.Client;
 import model.Prospect;
 import model.modelException;
 
@@ -19,8 +21,6 @@ public class Main {
     public static void main(String[] args) throws modelException {
 
 
-
-
         try {
             // 1 - utilisateur rentre une date
             String dateUser = JOptionPane.showInputDialog("rentrez une date");
@@ -32,9 +32,9 @@ public class Main {
             LocalDate date = LocalDate.parse(dateUser, formatter);
 
 
-            Prospect prospect = new Prospect(1,"youyou","15","rue",
-                            "93000","nan","1234567890","momo@momo.fr","ggg",
-                            date,true);
+            Prospect prospect = new Prospect(1, "youyou", "15", "rue",
+                    "93000", "nan", "1234567890", "momo@momo.fr", "ggg",
+                    date, true);
             System.out.println(prospect);
 
             Connection connection = Connexion.getInstance();
@@ -45,19 +45,34 @@ public class Main {
                 System.out.println(" mazzaaaaal ya l'hmaaar ");
             }
 
-            //DaoClient daoClient = new DaoClient();
+           /* Client client = new Client(3, "can18", "7",
+                    "rue Paul Jacques", "13000",
+                    "Marseille", "0781770148", "adresse@mail.com", "test",
+                    2500,
+                    500);*/
+            Client client1 = new Client(4,"boulangerie","5","avenur de l'europe",
+                    "57600","Forbach","0123456789","boulangerie@mail.com","",
+                    500000,23000);
 
-            JOptionPane.showMessageDialog(null,DaoClient.findAll().toArray());
+            // DaoClient.create(client1);
+
+            JOptionPane.showMessageDialog(null, DaoClient.findAll().toArray());
+            JOptionPane.showMessageDialog(null, DaoClient.findByName("Ibrahim Industrie"));
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         catch (modelException me){
-            System.out.println("erreur model"+me.getMessage());
-        }catch (DateTimeParseException dte){
+            System.out.println("erreur model "+me.getMessage());
+        }
+        catch (DateTimeParseException dte){
             System.out.println("erreur date " + dte.getMessage());
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
+        }
+        catch (daoException e) {
+            System.out.println("erreur dao " + e.getMessage());;
         }
     }
 }

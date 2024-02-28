@@ -3,6 +3,7 @@ package model;
 public abstract class  Societe {
 
     private int identifiant;
+    private static int nextId = 1;
     private String raisonSociale;
     private String numeroRue;
     private String nomRue;
@@ -23,6 +24,7 @@ public abstract class  Societe {
         setTelephone(telephone);
         setAdresseMail(adresseMail);
         setCommentaire(commentaire);
+        nextId++;
     }
 
     public Societe(int identifiant, String raisonSociale, String numeroRue, String nomRue, String codePostal,
@@ -126,13 +128,13 @@ public abstract class  Societe {
     public String toString() {
         return
                 "Id : " + identifiant +
-                ", raisonSociale : " + raisonSociale + '\'' +
-                ", numeroRue : " + numeroRue + '\'' +
-                ", nomRue : " + nomRue + '\'' +
-                ", codePostal : " + codePostal + '\'' +
-                ", ville : " + ville + '\'' +
-                ", telephone : " + telephone + '\'' +
-                ", adresseMail : " + adresseMail + '\'' +
-                ", commentaire : " + commentaire + '\'' ;
+                ", raisonSociale : " + raisonSociale +
+                ", numeroRue : " + numeroRue +
+                ", nomRue : " + nomRue +
+                ", codePostal : " + codePostal +
+                ", ville : " + ville +
+                ", telephone : " + telephone +
+                ", adresseMail : " + adresseMail +
+                ", commentaire : " + commentaire  ;
     }
 }

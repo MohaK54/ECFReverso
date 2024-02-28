@@ -55,7 +55,7 @@ public class Prospect extends Societe {
     @Override
     public String toString() {
         return super.toString() +
-                "date de Prospection : " + DateFormat.formatDate(getDateProspection()) +
+                " date de Prospection : " + DateFormat.formatDate(getDateProspection()) +
                 ", interet : " + interet + '\'' ;
     }
 }

@@ -1,51 +1,58 @@
 package model;
 
+
+
+
 public class Client extends Societe {
-
     private double chiffreAffaire;
-    private int nbrEmploye;
-    public Client(int identifiant, String raisonSociale, String numeroRue,
-                  String nomRue, String codePostal,
-                  String ville, String telephone, String adresseMail,
-                  String commentaire, double chiffreAffaire, int nbrEmploye) throws modelException {
-        super(identifiant, raisonSociale, numeroRue, nomRue, codePostal, ville, telephone, adresseMail, commentaire);
-        setChiffreAffaire(chiffreAffaire);
-        setNbrEmploye(nbrEmploye);
+    private int  nbrEmploye ;
+    public Client(int id,
+                  String raisonSociale,
+                  String numeroRue,
+                  String nomRue,
+                  String codePostal,
+                  String ville,
+                  String telephone,
+                  String adresseMail,
+                  String commentaire,
+                  double chiffreAffaire,
+                  int nbrEmploye
+    ) throws modelException {
+        super(id, raisonSociale, numeroRue, nomRue, codePostal, ville, telephone, adresseMail, commentaire);
+        this.setChiffreDaffaire(chiffreAffaire);
+        this.setNombreEmployer(nbrEmploye);
     }
 
-    public Client(int identifiant, String raisonSociale, String numeroRue,
-                  String nomRue, String codePostal,
-                  String ville, String telephone,
-                  String adresseMail, double chiffreAffaire, int nbrEmploye) throws modelException {
-        super(identifiant, raisonSociale, numeroRue, nomRue, codePostal, ville, telephone, adresseMail);
-    }
+
 
     public double getChiffreAffaire() {
-        return chiffreAffaire;
+        return this.chiffreAffaire;
     }
 
-    public void setChiffreAffaire(double chiffreAffaire) throws modelException {
+    public void setChiffreDaffaire(double chiffreAffaire) throws modelException {
         if (chiffreAffaire<=200){
-            throw new modelException("le chiffre d'affaire n'est pas correct");
+            throw new modelException("Le chiffre d’affaires doit être supérieur à 200");
         }
         this.chiffreAffaire = chiffreAffaire;
     }
 
     public int getNbrEmploye() {
-        return nbrEmploye;
+        return this.nbrEmploye;
     }
 
-    public void setNbrEmploye(int nbrEmploye) throws modelException {
-        if (nbrEmploye<=0){
-            throw new modelException("le nombre d'employé doit être supérieur à 0");
+    public void setNombreEmployer(int nbrEmploye) throws modelException {
+        if (nbrEmploye < 1){
+            throw new modelException("Le nombre d’employés doit être strictement supérieur à 0");
+
         }
-        this.nbrEmploye = nbrEmploye;
+            this.nbrEmploye = nbrEmploye;
     }
 
     @Override
     public String toString() {
-        return super.toString()  +
-                " C.A : " + chiffreAffaire +
-                ", Nbr d'Employe : " + nbrEmploye;
+        return super.toString()+ "Client{" +
+                "chiffreDaffaire=" + chiffreAffaire +
+                ", nombreEmployer=" + nbrEmploye +
+                '}';
     }
 }
