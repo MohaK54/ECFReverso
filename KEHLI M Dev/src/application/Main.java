@@ -1,5 +1,6 @@
 package application;
 
+import controleur.ControleurAccueil;
 import dao.Connexion;
 import dao.DaoClient;
 import dao.DaoProspect;
@@ -29,6 +30,8 @@ public class Main {
 
 
           try {
+              ControleurAccueil.init();
+
               fl = new FileHandler("FichierLog.log",true);
               fl.setFormatter(new FormatLog());
 
@@ -64,7 +67,7 @@ public class Main {
             JOptionPane.showMessageDialog(null, DaoClient.findByName("Ibrahim Industrie"));
 
               Client client = new Client(18, "ThinkVision", "15b",
-                      "Village de la Chapellenie", "35160",
+                      "Village de la Chapelenie", "35160",
                       "Montfort-Sur-Meu", "0781770148", "adresse@mail.com",
                       2500,
                       500);

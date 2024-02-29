@@ -185,7 +185,7 @@ public class DaoProspect {
         }
         PreparedStatement statement = connection.prepareStatement(query);
         if (statement == null) {
-            throw new daoException("create : Impossible de créer le statement pour exécuter la requête");
+            throw new daoException("create : Impossible de préparer la requête, statement est null");
         }
         Date date = Date.valueOf(prospect.getDateProspection());
         statement.setDate(1,date);
