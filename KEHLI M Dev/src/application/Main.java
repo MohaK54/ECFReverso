@@ -2,6 +2,7 @@ package application;
 
 import dao.Connexion;
 import dao.DaoClient;
+import dao.DaoProspect;
 import dao.daoException;
 import model.Client;
 import model.Prospect;
@@ -45,8 +46,8 @@ public class Main {
             LocalDate date = LocalDate.parse(dateUser, formatter);
 
 
-            Prospect prospect = new Prospect(1, "youyou", "15", "rue",
-                    "93000", "nan", "1234567890", "momo@momo.fr", "ggg",
+            Prospect prospect = new Prospect(1, "YouYouTelecom", "15", "rue",
+                    "93000", "nancy", "1234567890", "you@you.fr", "pas mal",
                     date, true);
             System.out.println(prospect);
 
@@ -58,19 +59,25 @@ public class Main {
                 System.out.println(" mazzaaaaal ya l'hmaaar ");
             }
 
-            Client client = new Client(3, "can20", "7",
-                    "rue Paul Jacques", "13000",
-                    "Marseille", "0781770148", "adresse@mail.com", "test",
-                    2500,
-                    500);
-            Client client1 = new Client(4, "Cristalline", "5", "avenur de l'europe",
-                "57600", "Forbach", "0123456789", "boulangerie@mail.com",
-                500000, 23000);
+
             JOptionPane.showMessageDialog(null, DaoClient.findAll().toArray());
             JOptionPane.showMessageDialog(null, DaoClient.findByName("Ibrahim Industrie"));
 
+              Client client = new Client(18, "ThinkVision", "15b",
+                      "Village de la Chapellenie", "35160",
+                      "Montfort-Sur-Meu", "0781770148", "adresse@mail.com",
+                      2500,
+                      500);
 
-            DaoClient.create(client1);
+              DaoProspect.delete(2);
+              DaoProspect.update(prospect);
+              JOptionPane.showMessageDialog(null,client.getIdentifiant());
+              JOptionPane.showMessageDialog(null, DaoProspect.findAll().toArray());
+
+            DaoClient.update(client);
+            DaoClient.delete(21);
+
+            //DaoClient.create(client1);
 
             MyLogg.LOGGER.log(Level.INFO,"Fin du programme");
 

@@ -6,6 +6,7 @@ import model.modelException;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DaoClient {
     public static ArrayList findAll() throws SQLException, IOException, modelException, daoException {
@@ -56,13 +57,14 @@ public class DaoClient {
 
     public static Client findByName(String name) throws SQLException, IOException, modelException, daoException {
         Connection connection = Connexion.getInstance();
-        Statement statement = null;
+        PreparedStatement statement = null;
         String query =
                 "SELECT ID_CLIENT, CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
                         "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
-                        + "NBREMPLOYE_CLIENT FROM CLIENT WHERE RAISONSOCIAL_SOCIETE = '"+name+"'";
-            statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
+                        + "NBREMPLOYE_CLIENT FROM CLIENT WHERE RAISONSOCIAL_SOCIETE = ?";
+        statement = connection.prepareStatement(query);
+        statement.setString(1,name);
+        ResultSet rs = statement.executeQuery();
             if (rs.next()){
                 int id = rs.getInt("ID_CLIENT");
                 double chiffreAffaire = rs.getDouble("CHIFFREAFFAIRE_CLIENT");
@@ -75,11 +77,10 @@ public class DaoClient {
                 String adressemailSociete = rs.getString("ADRESSEMAIL_SOCIETE");
                 String commentaireSociete = rs.getString("COMMENTAIRE_SOCIETE");
                 int nbremployeClient = rs.getInt("NBREMPLOYE_CLIENT");
-                Client client = new Client(id,raisonsocialSociete,numerorueSociete,
+                return new Client(id,raisonsocialSociete,numerorueSociete,
                         nomrueSociete,codepostalSociete,
                         villeSociete,telephoneSociete,adressemailSociete,
                         commentaireSociete,chiffreAffaire,nbremployeClient);
-                return client;
             } else {
                 throw new daoException("find by name error ");
             }
@@ -115,13 +116,61 @@ public class DaoClient {
         connection.close();
     }
 
-    public static void update(Client client)
-    {
+    public static void update(Client client) throws SQLException, IOException, daoException {
+        Connection connection = Connexion.getInstance();
+        String query = "UPDATE CLIENT " +
+                "   SET CHIFFREAFFAIRE_CLIENT = ?" +
+                ",RAISONSOCIAL_SOCIETE = ?" +
+                ",NUMERORUE_SOCIETE = ?" +
+                ",NOMRUE_SOCIETE = ?" +
+                ",VILLE_SOCIETE = ?" +
+                ",CODEPOSTAL_SOCIETE = ?" +
+                ",TELEPHONE_SOCIETE = ?" +
+                ",ADRESSEMAIL_SOCIETE = ?" +
+                ",COMMENTAIRE_SOCIETE = ?" +
+                ",NBREMPLOYE_CLIENT = ?" +
+                " WHERE ID_CLIENT =  ?";
+
+        if (connection == null) {
+            throw new daoException("La connexion à la base de données a échoué");
+        }
+        PreparedStatement statement = connection.prepareStatement(query);
+        if (statement == null) {
+            throw new daoException("create : Impossible de créer le statement pour exécuter la requête");
+        }
+        statement.setDouble(1,client.getChiffreAffaire());
+        statement.setString(2,client.getRaisonSociale());
+        statement.setString(3,client.getNumeroRue());
+        statement.setString(4,client.getNomRue());
+        statement.setString(5,client.getVille());
+        statement.setString(6,client.getCodePostal());
+        statement.setString(7,client.getTelephone());
+        statement.setString(8,client.getAdresseMail());
+        statement.setString(9,client.getCommentaire());
+        statement.setInt(10,client.getNbrEmploye());
+        statement.setInt(11,client.getIdentifiant());
+        int lignesModifiees = statement.executeUpdate();
+        if (lignesModifiees <= 0){
+            throw new daoException("erreur d'update Client");
+        }
+        statement.close();
+        connection.close();
 
     }
 
-    public static void delete(Client client)
-    {
-
+    public static void delete(int id) throws SQLException, IOException, daoException {
+        Connection connection = Connexion.getInstance();
+        String query = "DELETE FROM CLIENT WHERE ID_CLIENT = ?";
+        if (connection == null) {
+            throw new daoException("La connexion à la base de données a échoué");
+        }
+        PreparedStatement statement = connection.prepareStatement(query);
+        if (statement == null) {
+            throw new daoException("create : Impossible de créer le statement pour exécuter la requête");
+        }
+        statement.setInt(1,id);
+        statement.executeUpdate();
+        statement.close();
+        connection.close();
     }
 }
