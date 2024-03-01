@@ -35,12 +35,29 @@ public class Accueil extends JDialog {
         setContentPane(pBody);
         //setModal(true);
         setSize(1600, 1000);
+
     }
     {
         jpCorps2.setVisible(false);
         jpCorps1.setVisible(false);
         btnRetour.setVisible(false);
-
+        btnAffichage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    ControleurAffichage.init("Prospect");
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (daoException ex) {
+                    throw new RuntimeException(ex);
+                } catch (modelException ex) {
+                    throw new RuntimeException(ex);
+                }
+                dispose();
+            }
+        });
 
         btnRetour.addActionListener(new ActionListener() {
             @Override

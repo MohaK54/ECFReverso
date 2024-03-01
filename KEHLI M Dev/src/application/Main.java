@@ -48,8 +48,7 @@ public class Main {
             // 3 - je cree une date avec la date de l'user + mon format
             LocalDate date = LocalDate.parse(dateUser, formatter);
 
-
-            Prospect prospect = new Prospect(1, "YouYouTelecom", "15", "rue",
+            Prospect prospect = new Prospect(1, "LG", "15", "rue",
                     "93000", "nancy", "1234567890", "you@you.fr", "pas mal",
                     date, true);
             System.out.println(prospect);
@@ -63,24 +62,24 @@ public class Main {
             }
 
 
-            JOptionPane.showMessageDialog(null, DaoClient.findAll().toArray());
-            JOptionPane.showMessageDialog(null, DaoClient.findByName("Ibrahim Industrie"));
+            //JOptionPane.showMessageDialog(null, DaoClient.findAll().toArray());
+           // JOptionPane.showMessageDialog(null, DaoClient.findByName("Ibrahim Industrie"));
 
-              Client client = new Client(18, "ThinkVision", "15b",
+              Client client = new Client(18, "LG", "15b",
                       "Village de la Chapelenie", "35160",
                       "Montfort-Sur-Meu", "0781770148", "adresse@mail.com",
                       2500,
                       500);
 
-              DaoProspect.delete(2);
-              DaoProspect.update(prospect);
+             // DaoProspect.create(prospect);
+              //DaoProspect.update(prospect);
               JOptionPane.showMessageDialog(null,client.getIdentifiant());
               JOptionPane.showMessageDialog(null, DaoProspect.findAll().toArray());
 
-            DaoClient.update(client);
-            DaoClient.delete(21);
+           // DaoClient.update(client);
+            //DaoClient.delete(21);
 
-            //DaoClient.create(client1);
+           // DaoClient.create(client);
 
             MyLogg.LOGGER.log(Level.INFO,"Fin du programme");
 
