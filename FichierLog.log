@@ -218,3 +218,6 @@
 04/03/2024 15:46:55 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
 04/03/2024 15:46:56 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
 04/03/2024 15:48:11 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+04/03/2024 16:26:15 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+04/03/2024 16:26:16 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+04/03/2024 16:56:48 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
