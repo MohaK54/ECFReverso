@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class Affichage extends JFrame {
+public class Affichage extends JDialog {
 
     private JPanel jBody;
     private JTable listeA;
@@ -25,9 +25,10 @@ public class Affichage extends JFrame {
     private JPanel JBody;
 
     public Affichage(String entity) throws SQLException, IOException, daoException, modelException {
-        setTitle("Listes");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setTitle("Affichage");
+        setContentPane(jBody);
+       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1000, 800);
         setLocationRelativeTo(null);
         btn.setVisible(true);
 
@@ -52,10 +53,13 @@ public class Affichage extends JFrame {
                     "Ville", "Code Postal", "num Tel", "Adresse mail", "Commentaire" ,"Chiffre d'affaire",
                     "Nombre d'employé"};
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
-            JTable table = new JTable(model);
-            JScrollPane scrollPane = new JScrollPane(table);
-            add(scrollPane);
-        } else if (entity.equals("Prospect")) {
+            listeA.setModel(model);
+            JSPliste.setViewportView(listeA);
+            JBody.setVisible(true);
+            JSPliste.setVisible(true);
+            listeA.setVisible(true);
+        }
+        else if (entity.equals("Prospect")) {
             ArrayList<Prospect> liste = ControleurAffichage.findAllProspect();
             Object[][] data = new Object[liste.size()][11];
             for (int i = 0; i < liste.size(); i++) {

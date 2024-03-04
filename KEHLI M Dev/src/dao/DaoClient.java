@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class DaoClient {
-    public static ArrayList findAll() throws SQLException, IOException, modelException, daoException {
+    public static ArrayList<Client> findAll() throws SQLException, IOException, modelException, daoException {
         Connection connection = Connexion.getInstance();
         Statement statement = null;
         String query =
@@ -44,14 +44,40 @@ public class DaoClient {
                     commentaireSociete, chiffreAffaire, nbremployeClient);
             clients.add(client);
         }
-        if (connection!=null)
-        {
-            connection.close();
-        }
+
         if (statement!=null){
             statement.close();
         }
         return clients;
+    }
+
+    public static ArrayList<String> findAllRS() throws SQLException, IOException, modelException, daoException {
+        Connection connection = Connexion.getInstance();
+        Statement statement = null;
+        String query =
+                "SELECT RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
+                        "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
+                        + "NBREMPLOYE_CLIENT FROM CLIENT";
+
+        if (connection == null) {
+            throw new daoException("La connexion à la base de données a échoué");
+        }
+        statement = connection.createStatement();
+        if (statement == null) {
+            throw new daoException("Impossible de créer le statement pour exécuter la requête");
+        }
+        ResultSet rs = statement.executeQuery(query);
+        ArrayList<String> raisonSocials = new ArrayList<>();
+        while (rs.next()) {
+            String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
+
+            raisonSocials.add(raisonsocialSociete);
+        }
+
+        if (statement!=null){
+            statement.close();
+        }
+        return raisonSocials;
     }
 
 
@@ -113,7 +139,6 @@ public class DaoClient {
             throw new daoException("erreur d'insert into");
         }
         statement.close();
-        connection.close();
     }
 
     public static void update(Client client) throws SQLException, IOException, daoException {
@@ -154,7 +179,6 @@ public class DaoClient {
             throw new daoException("erreur d'update Client");
         }
         statement.close();
-        connection.close();
 
     }
 
@@ -171,6 +195,5 @@ public class DaoClient {
         statement.setInt(1,id);
         statement.executeUpdate();
         statement.close();
-        connection.close();
     }
 }

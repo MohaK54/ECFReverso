@@ -1,5 +1,7 @@
 package dao;
 
+import utilities.MyLogg;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.logging.Level;
 
 public class Connexion {
     private static Connection connexion;
@@ -19,7 +22,6 @@ public class Connexion {
         FileInputStream inputStream = new FileInputStream(fichier);
         dataProperties.load(inputStream);
         String url = dataProperties.getProperty("url");
-
         // Connexion à la base de données
         connexion = DriverManager.getConnection(url);
 
@@ -34,4 +36,18 @@ public class Connexion {
         return connexion;
     }
 
+    static {
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                if (connexion != null) {
+                    try {
+                        MyLogg.LOGGER.info("Bdd fermée");
+                        connexion.close();
+                    } catch (SQLException e) {
+                        MyLogg.LOGGER.log(Level.SEVERE, e.getMessage());
+                    }
+                }
+            }
+        });
+    }
 }

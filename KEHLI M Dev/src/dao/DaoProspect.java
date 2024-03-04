@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DaoProspect {
-    public static ArrayList findAll() throws SQLException, IOException, modelException, daoException {
+    public static ArrayList<Prospect> findAll() throws SQLException, IOException, modelException, daoException {
         Connection connection = Connexion.getInstance();
         Statement statement = null;
         String query =
@@ -59,9 +59,30 @@ public class DaoProspect {
                     villeSociete,telephoneSociete,adressemailSociete,commentaireSociete,date,interet);
             prospects.add(prospect);
         }
-        if (connection!=null)
-        {
-            connection.close();
+
+        if (statement!=null){
+            statement.close();
+        }
+        return prospects;
+    }
+    public static ArrayList<String> findAllRS() throws SQLException, IOException, modelException, daoException {
+        Connection connection = Connexion.getInstance();
+        Statement statement = null;
+        String query =
+                "SELECT RAISONSOCIAL_SOCIETE FROM PROSPECT";
+
+        if (connection == null) {
+            throw new daoException("La connexion à la base de données a échoué");
+        }
+        statement = connection.createStatement();
+        if (statement == null) {
+            throw new daoException("Impossible de créer le statement pour exécuter la requête");
+        }
+        ResultSet rs = statement.executeQuery(query);
+        ArrayList<String> prospects = new ArrayList<>();
+        while (rs.next()) {
+            String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
+            prospects.add(raisonsocialSociete);
         }
         if (statement!=null){
             statement.close();
@@ -162,7 +183,6 @@ public class DaoProspect {
             throw new daoException("erreur d'insert into");
         }
         statement.close();
-        connection.close();
     }
 
     public static void update(Prospect prospect) throws SQLException, IOException, daoException {
@@ -204,7 +224,6 @@ public class DaoProspect {
             throw new daoException("erreur d'update Prospect");
         }
         statement.close();
-        connection.close();
 
     }
 
@@ -221,6 +240,5 @@ public class DaoProspect {
         statement.setInt(1,id);
         statement.executeUpdate();
         statement.close();
-        connection.close();
     }
 }

@@ -33,7 +33,9 @@
             <children>
               <component id="6638" class="javax.swing.JTable" binding="listeA">
                 <constraints/>
-                <properties/>
+                <properties>
+                  <enabled value="false"/>
+                </properties>
               </component>
             </children>
           </scrollpane>

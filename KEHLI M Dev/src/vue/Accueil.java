@@ -1,6 +1,8 @@
 package vue;
 
+import controleur.ControleurAccueil;
 import controleur.ControleurAffichage;
+import controleur.ControleurFormulaire;
 import dao.daoException;
 import model.modelException;
 
@@ -34,8 +36,86 @@ public class Accueil extends JDialog {
     public Accueil() {
         setContentPane(pBody);
         //setModal(true);
-        setSize(1600, 1000);
+        setSize(1000, 800);
 
+        btnCreateClient.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    ControleurFormulaire.init("Client");
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (daoException ex) {
+                    throw new RuntimeException(ex);
+                } catch (modelException ex) {
+                    throw new RuntimeException(ex);
+                }
+                dispose();
+            }
+        });
+        btnCreer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    ControleurFormulaire.init("CreateP");
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (daoException ex) {
+                    throw new RuntimeException(ex);
+                } catch (modelException ex) {
+                    throw new RuntimeException(ex);
+                }
+                dispose();
+            }
+        });
+        btnUpdateClient.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String raisSocial = JOptionPane.showInputDialog(ControleurAccueil.disp("Client").toArray());
+                    if (raisSocial!=null){
+                        ControleurFormulaire.selecClient(ControleurAccueil.findClient(raisSocial));
+                        ControleurFormulaire.init("UpdateC");
+                        dispose();
+                    }
+
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (daoException ex) {
+                    throw new RuntimeException(ex);
+                } catch (modelException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        btnModif.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String raisSocial = JOptionPane.showInputDialog(ControleurAccueil.disp("Prospect").toArray());
+                    if(raisSocial!=null){
+                        ControleurFormulaire.selectProspect(ControleurAccueil.findProspect(raisSocial));
+                        ControleurFormulaire.init("UpdateP");
+                        dispose();
+                    }
+
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (daoException ex) {
+                    throw new RuntimeException(ex);
+                } catch (modelException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
     {
         jpCorps2.setVisible(false);
