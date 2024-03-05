@@ -1,8 +1,6 @@
 package vue;
 
 import controleur.ControleurAccueil;
-import controleur.ControleurAffichage;
-import controleur.ControleurFormulaire;
 import dao.daoException;
 import model.modelException;
 
@@ -43,7 +41,7 @@ public class Accueil extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ControleurFormulaire.init("CreateC");
+                    ControleurAccueil.launchFormulaire("CreateC");
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 } catch (IOException ex) {
@@ -62,7 +60,7 @@ public class Accueil extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ControleurFormulaire.init("CreateP");
+                    ControleurAccueil.launchFormulaire("CreateP");
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 } catch (IOException ex) {
@@ -83,8 +81,8 @@ public class Accueil extends JDialog {
                 try {
                     String raisSocial = JOptionPane.showInputDialog(ControleurAccueil.disp("Client").toArray());
                     if (raisSocial!=null){
-                        ControleurFormulaire.selecClient(ControleurAccueil.findClient(raisSocial));
-                        ControleurFormulaire.init("UpdateC");
+                        ControleurAccueil.choiceClient(raisSocial);
+                        ControleurAccueil.launchFormulaire("UpdateC");
                         dispose();
                     }
 
@@ -107,8 +105,8 @@ public class Accueil extends JDialog {
                 try {
                     String raisSocial = JOptionPane.showInputDialog(ControleurAccueil.disp("Prospect").toArray());
                     if(raisSocial!=null){
-                        ControleurFormulaire.selectProspect(ControleurAccueil.findProspect(raisSocial));
-                        ControleurFormulaire.init("UpdateP");
+                        ControleurAccueil.choiceProspect(raisSocial);
+                        ControleurAccueil.launchFormulaire("UpdateP");
                         dispose();
                     }
 
@@ -131,8 +129,8 @@ public class Accueil extends JDialog {
                 try {
                     String raisSocial = JOptionPane.showInputDialog(ControleurAccueil.disp("Client").toArray());
                     if(raisSocial!=null){
-                        ControleurFormulaire.selecClient(ControleurAccueil.findClient(raisSocial));
-                        ControleurFormulaire.init("DeleteC");
+                        ControleurAccueil.choiceClient(raisSocial);
+                        ControleurAccueil.launchFormulaire("DeleteC");
                         dispose();
                     }
 
@@ -155,8 +153,8 @@ public class Accueil extends JDialog {
                 try {
                     String raisSocial = JOptionPane.showInputDialog(ControleurAccueil.disp("Prospect").toArray());
                     if (raisSocial != null) {
-                        ControleurFormulaire.selectProspect(ControleurAccueil.findProspect(raisSocial));
-                        ControleurFormulaire.init("DeleteP");
+                        ControleurAccueil.choiceProspect(raisSocial);
+                        ControleurAccueil.launchFormulaire("DeleteP");
                         dispose();
                     }
                 } catch (SQLException ex) {
@@ -179,7 +177,7 @@ public class Accueil extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ControleurAffichage.init("Prospect");
+                    ControleurAccueil.launchAffichage("Prospect");
                 } catch (modelException ex) {
                     JOptionPane.showMessageDialog(null,ex.getMessage());
                 } catch (SQLException ex) {
@@ -209,7 +207,7 @@ public class Accueil extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 try {
 
-                    ControleurAffichage.init("Client");
+                    ControleurAccueil.launchAffichage("Client");
                     dispose();
                 } catch (modelException | daoException | SQLException | IOException ex) {
                     JOptionPane.showMessageDialog(null,ex.getMessage());

@@ -26,4 +26,8 @@ public class ControleurAffichage {
     public static ArrayList findAllProspect() throws SQLException, IOException, daoException, modelException {
         return DaoProspect.findAll();
     }
+
+    public static void launchAccueil(){
+        ControleurAccueil.init();
+    }
 }

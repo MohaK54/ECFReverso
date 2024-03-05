@@ -34,7 +34,7 @@ public class ControleurFormulaire {
                              String mail,
                              String comm,
                              double ca,
-                             int nbrEmploye) throws modelException, SQLException, IOException, daoException {
+                             int nbrEmploye) throws Exception {
         Client client = new Client(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,ca,nbrEmploye);
         DaoClient.create(client);
     }
@@ -50,7 +50,7 @@ public class ControleurFormulaire {
             String mail,
             String comm,
             String interet,
-            LocalDate date) throws modelException, SQLException, IOException, daoException {
+            LocalDate date) throws Exception {
         boolean interesse = false;
         if (interet.equals("oui"))
         {
@@ -77,7 +77,7 @@ public class ControleurFormulaire {
                                     String mail,
                                     String comm,
                                     double ca,
-                                    int nbrEmploye) throws modelException, SQLException, IOException, daoException {
+                                    int nbrEmploye) throws Exception {
         Client client = new Client(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,ca,nbrEmploye);
         DaoClient.update(client);
     }
@@ -92,7 +92,7 @@ public class ControleurFormulaire {
             String mail,
             String comm,
             String interet,
-            LocalDate date) throws modelException, SQLException, IOException, daoException {
+            LocalDate date) throws Exception {
         boolean interesse = false;
         if (interet.equals("oui"))
         {
@@ -102,11 +102,14 @@ public class ControleurFormulaire {
         DaoProspect.update(prospect);
     }
 
-    public static void deleteClient(int id) throws SQLException, IOException, daoException {
+    public static void deleteClient(int id) throws Exception {
         DaoClient.delete(id);
     }
-    public static void deleteProspect(int id) throws SQLException, IOException, daoException {
+    public static void deleteProspect(int id) throws Exception {
         DaoProspect.delete(id);
+    }
+    public static void launchAccueil(){
+        ControleurAccueil.init();
     }
 
 }

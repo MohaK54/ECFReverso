@@ -44,5 +44,20 @@ public class ControleurAccueil {
         return prospect;
     }
 
+    public static void launchFormulaire(String option) throws SQLException, IOException, daoException, modelException {
+        ControleurFormulaire.init(option);
+    }
+
+    public static void launchAffichage(String option) throws SQLException, IOException, daoException, modelException {
+        ControleurAffichage.init(option);
+    }
+
+    public static void choiceClient(String raisonSocial) throws SQLException, IOException, daoException, modelException {
+        ControleurFormulaire.selecClient(findClient(raisonSocial));
+    }
+
+    public static void choiceProspect(String raisonSocial) throws SQLException, IOException, daoException, modelException {
+        ControleurFormulaire.selectProspect(findProspect(raisonSocial));
+    }
 
 }

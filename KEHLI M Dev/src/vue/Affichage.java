@@ -1,6 +1,6 @@
 package vue;
 
-import controleur.ControleurAccueil;
+
 import controleur.ControleurAffichage;
 import dao.daoException;
 import model.Client;
@@ -29,14 +29,14 @@ public class Affichage extends JDialog {
         setTitle("Affichage");
         setContentPane(jBody);
         // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000, 800);
+        setSize(1200, 800);
         setLocationRelativeTo(null);
         btn.setVisible(true);
 
         try {
             if (entity.equals("Client")) {
             ArrayList<Client> liste = ControleurAffichage.findAllClient();
-            Object[][] data = new Object[liste.size()][11];
+            Object[][] data = new Object[liste.size()][10];
             for (int i = 0; i < liste.size(); i++) {
                 Client client = liste.get(i);
                 data[i][0] = client.getIdentifiant();
@@ -47,12 +47,11 @@ public class Affichage extends JDialog {
                 data[i][5] = client.getCodePostal();
                 data[i][6] = client.getTelephone();
                 data[i][7] = client.getAdresseMail();
-                data[i][8] = client.getCommentaire();
-                data[i][9] = client.getChiffreAffaire();
-                data[i][10] = client.getNbrEmploye();
+                data[i][8] = client.getChiffreAffaire();
+                data[i][9] = client.getNbrEmploye();
             }
             String[] columnNames = {"identifiant", "Raison Social", "Num Rue", "Nom Rue",
-                    "Ville", "Code Postal", "num Tel", "Adresse mail", "Commentaire", "Chiffre d'affaire",
+                    "Ville", "Code Postal", "num Tel", "Adresse mail", "Chiffre d'affaire",
                     "Nombre d'employé"};
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
             listeA.setModel(model);
@@ -63,7 +62,7 @@ public class Affichage extends JDialog {
 
             } else if (entity.equals("Prospect")) {
             ArrayList<Prospect> liste = ControleurAffichage.findAllProspect();
-            Object[][] data = new Object[liste.size()][11];
+            Object[][] data = new Object[liste.size()][10];
             for (int i = 0; i < liste.size(); i++) {
                 Prospect prospect = liste.get(i);
                 data[i][0] = prospect.getIdentifiant();
@@ -76,11 +75,10 @@ public class Affichage extends JDialog {
                 data[i][7] = prospect.getAdresseMail();
                 data[i][8] = prospect.getDateProspection();
                 data[i][9] = prospect.getInteret();
-                data[i][10] = prospect.getCommentaire();
+
             }
             String[] columnNames = {"identifiant", "Raison Social", "Num Rue", "Nom Rue",
-                    "Ville", "Code Postal", "num Tel", "Adresse mail", "Date Prospection", "Interet ?",
-                    "Commentaire"};
+                    "Ville", "Code Postal", "num Tel", "Adresse mail", "Date Prospection", "Interet ?"};
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
             listeA.setModel(model);
             JSPliste.setViewportView(listeA);
@@ -111,7 +109,7 @@ public class Affichage extends JDialog {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ControleurAccueil.init();
+                ControleurAffichage.launchAccueil();
                 dispose();
             }
         });

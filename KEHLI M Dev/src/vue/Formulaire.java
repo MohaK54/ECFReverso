@@ -1,6 +1,6 @@
 package vue;
 
-import controleur.ControleurAccueil;
+
 import controleur.ControleurFormulaire;
 import dao.daoException;
 import model.modelException;
@@ -58,7 +58,7 @@ public class Formulaire extends JDialog {
         btnAccueil.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ControleurAccueil.init();
+                ControleurFormulaire.launchAccueil();
                 dispose();
             }
         });
@@ -67,11 +67,13 @@ public class Formulaire extends JDialog {
             modifName();
             lbExtra1.setText("Chiffre d'affaire *");
             lbExtra2.setText("Nombre d'employé *");
+            sId.setVisible(false);
+            lbIdent.setVisible(false);
             btnCreer.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        if (sId.getText().isEmpty() ||
+                        if (
                                 sRS.getText().isEmpty() ||
                                 sNumRue.getText().isEmpty() ||
                                 sNomRue.getText().isEmpty() ||
@@ -87,7 +89,6 @@ public class Formulaire extends JDialog {
                         }
                         else {
 
-                            int id = Integer.parseInt(sId.getText());
                             String raisonSocial = sRS.getText();
                             String numRue = sNumRue.getText();
                             String nomRue = sNomRue.getText();
@@ -99,12 +100,11 @@ public class Formulaire extends JDialog {
                             double chiffreAffaire = Double.parseDouble(sExtra1.getText());
                             int nbrEmploye = Integer.parseInt(sExtra2.getText());
 
-
-                            ControleurFormulaire.creerClient(id, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
+                            ControleurFormulaire.creerClient(1, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
                                     commentaire, chiffreAffaire, nbrEmploye);
 
                             JOptionPane.showMessageDialog(null, "Client crée avec succès");
-                            ControleurAccueil.init();
+                            ControleurFormulaire.launchAccueil();
                             dispose();
                         }
 
@@ -169,7 +169,7 @@ public class Formulaire extends JDialog {
                                     commentaire, interet, localDate);
 
                             JOptionPane.showMessageDialog(null, "Prospect crée avec succès");
-                            ControleurAccueil.init();
+                            ControleurFormulaire.launchAccueil();
                             dispose();
                         }
 
@@ -227,7 +227,7 @@ public class Formulaire extends JDialog {
                         ControleurFormulaire.updateClient(id,raisonSocial,numRue,nomRue,ville,codePostal,tel,email,
                                 commentaire,chiffreAffaire,nbrEmploye);
                         JOptionPane.showMessageDialog(null, "Client modifié avec succès");
-                        ControleurAccueil.init();
+                        ControleurFormulaire.launchAccueil();
                         dispose();
                     } catch (modelException ex) {
                         JOptionPane.showMessageDialog(null,ex.getMessage());
@@ -286,7 +286,7 @@ public class Formulaire extends JDialog {
                         ControleurFormulaire.updateProspect(id,raisonSocial,numRue,nomRue,ville,codePostal,tel,email,
                                 commentaire,interer,localDate);
                         JOptionPane.showMessageDialog(null, "Prospect modifié avec succès");
-                        ControleurAccueil.init();
+                        ControleurFormulaire.launchAccueil();
                         dispose();
                     } catch (modelException ex) {
                         JOptionPane.showMessageDialog(null,ex.getMessage());
@@ -337,16 +337,16 @@ public class Formulaire extends JDialog {
                             ControleurFormulaire.deleteClient(ControleurFormulaire.clientSelect.getIdentifiant());
                             JOptionPane.showMessageDialog(null,"Client supprimé avec succés");
                             dispose();
-                            ControleurAccueil.init();
+                            ControleurFormulaire.launchAccueil();
                         } catch (SQLException ex) {
                             throw new RuntimeException(ex);
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
-                        } catch (daoException ex) {
+                        } catch (Exception ex) {
                             throw new RuntimeException(ex);
                         }
                     }
-                    else ControleurAccueil.init();
+                    else ControleurFormulaire.launchAccueil();
                 }
                 });
 
@@ -379,16 +379,18 @@ public class Formulaire extends JDialog {
                             ControleurFormulaire.deleteProspect(ControleurFormulaire.prospectSelect.getIdentifiant());
                             JOptionPane.showMessageDialog(null,"Prospect supprimé avec succés");
                             dispose();
-                            ControleurAccueil.init();
+                            ControleurFormulaire.launchAccueil();
                         } catch (SQLException ex) {
                             throw new RuntimeException(ex);
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         } catch (daoException ex) {
                             throw new RuntimeException(ex);
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);
                         }
                     }
-                    else ControleurAccueil.init();
+                    else ControleurFormulaire.launchAccueil();
                 }
             });
         }
@@ -409,7 +411,6 @@ public class Formulaire extends JDialog {
         sCP.setEnabled(false);
     }
     private void modifName(){
-        lbIdent.setText("ID *");
         lbRS.setText("Raison Social *");
         lbCP.setText("Code Postal *");
         lbMail.setText("Adresse Mail *");
