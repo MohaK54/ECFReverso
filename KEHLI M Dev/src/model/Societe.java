@@ -44,8 +44,10 @@ public abstract class  Societe {
         return identifiant;
     }
 
-    public void setIdentifiant(int identifiant) {
-
+    public void setIdentifiant(int identifiant) throws modelException {
+        if (identifiant < 0 ){
+            throw new modelException("L'identifiant doit-être positif");
+        }
         this.identifiant = identifiant;
     }
 
@@ -53,15 +55,22 @@ public abstract class  Societe {
         return raisonSociale;
     }
 
-    public void setRaisonSociale(String raisonSociale) {
-        this.raisonSociale = raisonSociale;
+    public void setRaisonSociale(String raisonSociale) throws modelException {
+        if (raisonSociale!= null && !raisonSociale.isEmpty() && raisonSociale.length() <= 50){
+            this.raisonSociale = raisonSociale;
+        } else {
+            throw new modelException("La Raison social doit-être remplis");
+        }
     }
 
     public String getNumeroRue() {
         return numeroRue;
     }
 
-    public void setNumeroRue(String numeroRue) {
+    public void setNumeroRue(String numeroRue) throws modelException {
+        if (numeroRue==null || numeroRue.isEmpty() || numeroRue.length()>5){
+            throw new modelException("Le numéro de rue doit-être remplis et inférieur à 5 caractère");
+        }
         this.numeroRue = numeroRue;
     }
 
@@ -69,7 +78,10 @@ public abstract class  Societe {
         return nomRue;
     }
 
-    public void setNomRue(String nomRue) {
+    public void setNomRue(String nomRue) throws modelException {
+        if (nomRue==null || nomRue.isEmpty() || nomRue.length() > 30){
+            throw new modelException("Le nom de rue doit-être remplis");
+        }
         this.nomRue = nomRue;
     }
 
@@ -77,7 +89,10 @@ public abstract class  Societe {
         return codePostal;
     }
 
-    public void setCodePostal(String codePostal) {
+    public void setCodePostal(String codePostal) throws modelException {
+        if (codePostal==null || codePostal.length()!=5){
+            throw new modelException("Le code postal est incorrect");
+        }
         this.codePostal = codePostal;
     }
 
@@ -85,7 +100,10 @@ public abstract class  Societe {
         return ville;
     }
 
-    public void setVille(String ville) {
+    public void setVille(String ville) throws modelException {
+        if (ville == null || ville.isEmpty() || ville.length() > 45){
+            throw new modelException("La ville est incorrect");
+        }
         this.ville = ville;
     }
 
@@ -94,7 +112,7 @@ public abstract class  Societe {
     }
 
     public void setTelephone(String telephone) throws modelException {
-        if (telephone.length()>=10){
+        if (telephone!=null && telephone.length()>=10 && telephone.length()<=20){
             this.telephone = telephone;
         } else {
             throw new modelException("le numéro est trop court il faut au moins 10 chiffres");
@@ -107,7 +125,7 @@ public abstract class  Societe {
     }
 
     public void setAdresseMail(String adresseMail) throws modelException {
-        if (adresseMail.matches(".*@.*")) {
+        if (adresseMail!=null && adresseMail.matches(".*@.*")) {
             this.adresseMail = adresseMail;
         }
         else{

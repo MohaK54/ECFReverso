@@ -33,8 +33,11 @@ public class Prospect extends Societe {
         return this.dateProspection;
     }
 
-    public void setDateProspection(LocalDate dateProspection) {
-            this.dateProspection = dateProspection;
+    public void setDateProspection(LocalDate dateProspection) throws modelException {
+        if (dateProspection==null){
+            throw new modelException("La date doit-être remplis");
+        }
+        this.dateProspection = dateProspection;
     }
 
 

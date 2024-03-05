@@ -33,7 +33,7 @@ public class ControleurFormulaire {
                              String tel,
                              String mail,
                              String comm,
-                             int ca,
+                             double ca,
                              int nbrEmploye) throws modelException, SQLException, IOException, daoException {
         Client client = new Client(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,ca,nbrEmploye);
         DaoClient.create(client);
@@ -67,7 +67,6 @@ public class ControleurFormulaire {
         prospectSelect = prospect;
     }
 
-
     public static void updateClient(int id,
                                     String rs,
                                     String numRue,
@@ -77,7 +76,7 @@ public class ControleurFormulaire {
                                     String tel,
                                     String mail,
                                     String comm,
-                                    int ca,
+                                    double ca,
                                     int nbrEmploye) throws modelException, SQLException, IOException, daoException {
         Client client = new Client(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,ca,nbrEmploye);
         DaoClient.update(client);
@@ -101,6 +100,13 @@ public class ControleurFormulaire {
         }
         Prospect prospect = new Prospect(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,date,interesse);
         DaoProspect.update(prospect);
+    }
+
+    public static void deleteClient(int id) throws SQLException, IOException, daoException {
+        DaoClient.delete(id);
+    }
+    public static void deleteProspect(int id) throws SQLException, IOException, daoException {
+        DaoProspect.delete(id);
     }
 
 }

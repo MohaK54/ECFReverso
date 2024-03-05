@@ -13,6 +13,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Formulaire extends JDialog {
     private JPanel panel;
@@ -46,9 +47,9 @@ public class Formulaire extends JDialog {
     private JPanel JPbtn;
     private JPanel JPTitle;
     private JLabel lbTitle;
+    private JLabel lbInfo;
 
-    public Formulaire(String entity) throws SQLException, IOException, daoException, modelException {
-
+    public Formulaire(String entity){
         setTitle("Formulaire");
         setContentPane(panel);
         // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,83 +64,138 @@ public class Formulaire extends JDialog {
         });
 
         if (entity.equals("CreateC")) {
+            modifName();
+            lbExtra1.setText("Chiffre d'affaire *");
+            lbExtra2.setText("Nombre d'employé *");
             btnCreer.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        int id = Integer.parseInt(sId.getText());
-                        String raisonSocial = sRS.getText();
-                        String numRue = sNumRue.getText();
-                        String nomRue = sNomRue.getText();
-                        String codePostal = sCP.getText();
-                        String ville = sVille.getText();
-                        String tel = sTel.getText();
-                        String email = sMail.getText();
-                        String commentaire = sCom.getText();
-                        int chiffreAffaire = Integer.parseInt(sExtra1.getText());
-                        int nbrEmploye = Integer.parseInt(sExtra2.getText());
+                        if (sId.getText().isEmpty() ||
+                                sRS.getText().isEmpty() ||
+                                sNumRue.getText().isEmpty() ||
+                                sNomRue.getText().isEmpty() ||
+                                sCP.getText().isEmpty() ||
+                                sVille.getText().isEmpty() ||
+                                sTel.getText().isEmpty() ||
+                                sMail.getText().isEmpty() ||
+                                sExtra1.getText().isEmpty() ||
+                                sExtra2.getText().isEmpty()
+                        ){
+                            JOptionPane.showMessageDialog(null,
+                                    "Tout les champs contenant la mention '*' doivent d'être remplis");
+                        }
+                        else {
 
-                        ControleurFormulaire.creerClient(id, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
-                                commentaire, chiffreAffaire, nbrEmploye);
+                            int id = Integer.parseInt(sId.getText());
+                            String raisonSocial = sRS.getText();
+                            String numRue = sNumRue.getText();
+                            String nomRue = sNomRue.getText();
+                            String codePostal = sCP.getText();
+                            String ville = sVille.getText();
+                            String tel = sTel.getText();
+                            String email = sMail.getText();
+                            String commentaire = sCom.getText();
+                            double chiffreAffaire = Double.parseDouble(sExtra1.getText());
+                            int nbrEmploye = Integer.parseInt(sExtra2.getText());
 
-                        JOptionPane.showMessageDialog(null, "Client crée avec succès");
-                        ControleurAccueil.init();
-                        dispose();
+
+                            ControleurFormulaire.creerClient(id, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
+                                    commentaire, chiffreAffaire, nbrEmploye);
+
+                            JOptionPane.showMessageDialog(null, "Client crée avec succès");
+                            ControleurAccueil.init();
+                            dispose();
+                        }
 
                     } catch (modelException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (daoException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }catch (NumberFormatException ne){
+                        JOptionPane.showMessageDialog(null,
+                                "Des lettres ont été rentrés au mauvais endroits, " +
+                                        "verifiez le chiffre d'affaire, l'id et le nombre d'employé");
+                    }
+                    catch (Exception ex){
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 }
             });
         }
         if (entity.equals("CreateP")){
-            lbExtra1.setText("Date de Prospection");
-            lbExtra2.setText("Intérêt");
+            lbTitle.setText("Création Prospect");
+            modifName();
+            lbExtra1.setText("Date de Prospection *");
+            lbExtra2.setText("Intérêt *");
             btnCreer.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        int id = Integer.parseInt(sId.getText());
-                        String raisonSocial = sRS.getText();
-                        String numRue = sNumRue.getText();
-                        String nomRue = sNomRue.getText();
-                        String codePostal = sCP.getText();
-                        String ville = sVille.getText();
-                        String tel = sTel.getText();
-                        String email = sMail.getText();
-                        String commentaire = sCom.getText();
-                        String date = sExtra1.getText();
-                        String interet = sExtra2.getText();
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                        LocalDate localDate = LocalDate.parse(date, formatter);
+                        if (sId.getText().isEmpty() ||
+                                sRS.getText().isEmpty() ||
+                                sNumRue.getText().isEmpty() ||
+                                sNomRue.getText().isEmpty() ||
+                                sCP.getText().isEmpty() ||
+                                sVille.getText().isEmpty() ||
+                                sTel.getText().isEmpty() ||
+                                sMail.getText().isEmpty() ||
+                                sExtra1.getText().isEmpty() ||
+                                sExtra2.getText().isEmpty()
+                        ){
+                            JOptionPane.showMessageDialog(null,
+                                    "Tout les champs contenant la mention '*' doivent d'être remplis");
+                        }
+                        else {
+                            int id = Integer.parseInt(sId.getText());
+                            String raisonSocial = sRS.getText();
+                            String numRue = sNumRue.getText();
+                            String nomRue = sNomRue.getText();
+                            String codePostal = sCP.getText();
+                            String ville = sVille.getText();
+                            String tel = sTel.getText();
+                            String email = sMail.getText();
+                            String commentaire = sCom.getText();
+                            String date = sExtra1.getText();
+                            String interet = sExtra2.getText();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                            LocalDate localDate = LocalDate.parse(date, formatter);
 
-                        ControleurFormulaire.creerProspect(id,raisonSocial,numRue,nomRue,ville,codePostal,tel,email,
-                                commentaire,interet,localDate);
+                            ControleurFormulaire.creerProspect(id, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
+                                    commentaire, interet, localDate);
 
-                        JOptionPane.showMessageDialog(null,"Prospect crée avec succès");
-                        ControleurAccueil.init();
-                        dispose();
+                            JOptionPane.showMessageDialog(null, "Prospect crée avec succès");
+                            ControleurAccueil.init();
+                            dispose();
+                        }
 
                     } catch (modelException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (daoException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }catch (NumberFormatException ne){
+                        JOptionPane.showMessageDialog(null,
+                                "Des lettres ont été rentrés au mauvais endroits verifiez l'id ");
+                    }catch (DateTimeParseException de){
+                        JOptionPane.showMessageDialog(null,
+                                "Format date incorrect essayez avec le format : jj/mm/aaa");
+                    } catch (Exception ex){
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 }
             });
         }
         if (entity.equals("UpdateC")){
             lbTitle.setText("Update Client");
+            lbInfo.setVisible(false);
             sId.setText(String.valueOf(ControleurFormulaire.clientSelect.getIdentifiant()));
             sId.setEnabled(false);
             sRS.setText(ControleurFormulaire.clientSelect.getRaisonSociale());
@@ -150,7 +206,7 @@ public class Formulaire extends JDialog {
             sTel.setText(ControleurFormulaire.clientSelect.getTelephone());
             sMail.setText(ControleurFormulaire.clientSelect.getAdresseMail());
             sCom.setText(ControleurFormulaire.clientSelect.getCommentaire());
-            sExtra1.setText(String.valueOf(ControleurFormulaire.clientSelect.getChiffreAffaire()));
+            sExtra1.setText(Double.toString(ControleurFormulaire.clientSelect.getChiffreAffaire()));
             sExtra2.setText(String.valueOf(ControleurFormulaire.clientSelect.getNbrEmploye()));
             btnCreer.setText("Update");
             btnCreer.addActionListener(new ActionListener() {
@@ -166,7 +222,7 @@ public class Formulaire extends JDialog {
                     String tel = sTel.getText();
                     String email = sMail.getText();
                     String commentaire = sCom.getText();
-                    int chiffreAffaire = Integer.parseInt(sExtra1.getText());
+                    Double chiffreAffaire = Double.valueOf(sExtra1.getText());
                     int nbrEmploye = Integer.parseInt(sExtra2.getText());
                         ControleurFormulaire.updateClient(id,raisonSocial,numRue,nomRue,ville,codePostal,tel,email,
                                 commentaire,chiffreAffaire,nbrEmploye);
@@ -174,13 +230,19 @@ public class Formulaire extends JDialog {
                         ControleurAccueil.init();
                         dispose();
                     } catch (modelException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (daoException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    } catch (NumberFormatException ne){
+                        JOptionPane.showMessageDialog(null,
+                                "Des lettres ont été rentrés au mauvais endroits, " +
+                                        "verifiez le chiffre d'affaire, l'id et le nombre d'employé");
+                    }catch (Exception ex){
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 }
             });
@@ -188,6 +250,7 @@ public class Formulaire extends JDialog {
         }
         if (entity.equals("UpdateP")){
             lbTitle.setText("Update Prospect");
+            lbInfo.setVisible(false);
             sId.setText(String.valueOf(ControleurFormulaire.prospectSelect.getIdentifiant()));
             sId.setEnabled(false);
             sRS.setText(ControleurFormulaire.prospectSelect.getRaisonSociale());
@@ -226,20 +289,134 @@ public class Formulaire extends JDialog {
                         ControleurAccueil.init();
                         dispose();
                     } catch (modelException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     } catch (daoException ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }catch (NumberFormatException ne){
+                        JOptionPane.showMessageDialog(null,
+                                "Des lettres ont été rentrés au mauvais endroits verifiez l'id ");
+                    }catch (DateTimeParseException de){
+                        JOptionPane.showMessageDialog(null,
+                                "Format date incorrect essayez avec le format : jj/mm/aaa");
+                    }
+                    catch (Exception ex){
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 }
             });
 
         }
+        if (entity.equals("DeleteC")){
+            lbTitle.setText("Delete Client");
+            lbInfo.setVisible(false);
+            sId.setText(String.valueOf(ControleurFormulaire.clientSelect.getIdentifiant()));
+            notEnable();
+            sRS.setText(ControleurFormulaire.clientSelect.getRaisonSociale());
+            sNumRue.setText(ControleurFormulaire.clientSelect.getNumeroRue());
+            sNomRue.setText(ControleurFormulaire.clientSelect.getNomRue());
+            sVille.setText(ControleurFormulaire.clientSelect.getVille());
+            sCP.setText(ControleurFormulaire.clientSelect.getCodePostal());
+            sTel.setText(ControleurFormulaire.clientSelect.getTelephone());
+            sMail.setText(ControleurFormulaire.clientSelect.getAdresseMail());
+            sCom.setText(ControleurFormulaire.clientSelect.getCommentaire());
+            sExtra1.setText(Double.toString(ControleurFormulaire.clientSelect.getChiffreAffaire()));
+            sExtra2.setText(String.valueOf(ControleurFormulaire.clientSelect.getNbrEmploye()));
+            btnCreer.setText("Supprimer");
+            btnCreer.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int supp = JOptionPane.showConfirmDialog(null,
+                            "Êtes vous sur de vouloir supprimer ce Client");
+                    if(supp == JOptionPane.YES_OPTION)
+                    {
+                        try {
+                            ControleurFormulaire.deleteClient(ControleurFormulaire.clientSelect.getIdentifiant());
+                            JOptionPane.showMessageDialog(null,"Client supprimé avec succés");
+                            dispose();
+                            ControleurAccueil.init();
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (daoException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                    else ControleurAccueil.init();
+                }
+                });
 
+        }
+        if (entity.equals("DeleteP")){
+            lbTitle.setText("Delete Prospect");
+            lbInfo.setVisible(false);
+            sId.setText(String.valueOf(ControleurFormulaire.prospectSelect.getIdentifiant()));
+            notEnable();
+            sRS.setText(ControleurFormulaire.prospectSelect.getRaisonSociale());
+            sNumRue.setText(ControleurFormulaire.prospectSelect.getNumeroRue());
+            sNomRue.setText(ControleurFormulaire.prospectSelect.getNomRue());
+            sVille.setText(ControleurFormulaire.prospectSelect.getVille());
+            sCP.setText(ControleurFormulaire.prospectSelect.getCodePostal());
+            sTel.setText(ControleurFormulaire.prospectSelect.getTelephone());
+            sMail.setText(ControleurFormulaire.prospectSelect.getAdresseMail());
+            sCom.setText(ControleurFormulaire.prospectSelect.getCommentaire());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            sExtra1.setText(ControleurFormulaire.prospectSelect.getDateProspection().format(formatter));
+            sExtra2.setText(ControleurFormulaire.prospectSelect.getInteret());
+            btnCreer.setText("Supprimer");
+            btnCreer.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int supp = JOptionPane.showConfirmDialog(null,
+                            "Êtes vous sur de vouloir supprimer ce Prospect");
+                    if(supp == JOptionPane.YES_OPTION)
+                    {
+                        try {
+                            ControleurFormulaire.deleteProspect(ControleurFormulaire.prospectSelect.getIdentifiant());
+                            JOptionPane.showMessageDialog(null,"Prospect supprimé avec succés");
+                            dispose();
+                            ControleurAccueil.init();
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (daoException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                    else ControleurAccueil.init();
+                }
+            });
+        }
 
+    }
+
+    private void notEnable(){
+        sId.setEnabled(false);
+        sRS.setEnabled(false);
+        sCom.setEnabled(false);
+        sMail.setEnabled(false);
+        sTel.setEnabled(false);
+        sExtra1.setEnabled(false);
+        sExtra2.setEnabled(false);
+        sVille.setEnabled(false);
+        sNomRue.setEnabled(false);
+        sNumRue.setEnabled(false);
+        sCP.setEnabled(false);
+    }
+    private void modifName(){
+        lbIdent.setText("ID *");
+        lbRS.setText("Raison Social *");
+        lbCP.setText("Code Postal *");
+        lbMail.setText("Adresse Mail *");
+        lbNumRue.setText("Numéro de rue *");
+        lnNomRue.setText("Nom de rue *");
+        lbVille.setText("Ville *");
+        lbTel.setText("Téléphone *");
     }
 
 

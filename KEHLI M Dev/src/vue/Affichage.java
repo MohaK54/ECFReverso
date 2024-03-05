@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 
@@ -24,15 +25,16 @@ public class Affichage extends JDialog {
     private JScrollPane JSPliste;
     private JPanel JBody;
 
-    public Affichage(String entity) throws SQLException, IOException, daoException, modelException {
+    public Affichage(String entity) {
         setTitle("Affichage");
         setContentPane(jBody);
-       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 800);
         setLocationRelativeTo(null);
         btn.setVisible(true);
 
-        if (entity.equals("Client")) {
+        try {
+            if (entity.equals("Client")) {
             ArrayList<Client> liste = ControleurAffichage.findAllClient();
             Object[][] data = new Object[liste.size()][11];
             for (int i = 0; i < liste.size(); i++) {
@@ -49,8 +51,8 @@ public class Affichage extends JDialog {
                 data[i][9] = client.getChiffreAffaire();
                 data[i][10] = client.getNbrEmploye();
             }
-            String[] columnNames = {"identifiant","Raison Social","Num Rue", "Nom Rue",
-                    "Ville", "Code Postal", "num Tel", "Adresse mail", "Commentaire" ,"Chiffre d'affaire",
+            String[] columnNames = {"identifiant", "Raison Social", "Num Rue", "Nom Rue",
+                    "Ville", "Code Postal", "num Tel", "Adresse mail", "Commentaire", "Chiffre d'affaire",
                     "Nombre d'employé"};
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
             listeA.setModel(model);
@@ -58,8 +60,8 @@ public class Affichage extends JDialog {
             JBody.setVisible(true);
             JSPliste.setVisible(true);
             listeA.setVisible(true);
-        }
-        else if (entity.equals("Prospect")) {
+
+            } else if (entity.equals("Prospect")) {
             ArrayList<Prospect> liste = ControleurAffichage.findAllProspect();
             Object[][] data = new Object[liste.size()][11];
             for (int i = 0; i < liste.size(); i++) {
@@ -76,15 +78,32 @@ public class Affichage extends JDialog {
                 data[i][9] = prospect.getInteret();
                 data[i][10] = prospect.getCommentaire();
             }
-            String[] columnNames = { "identifiant", "Raison Social","Num Rue", "Nom Rue",
-                    "Ville","Code Postal","num Tel","Adresse mail","Date Prospection","Interet ?",
-                    "Commentaire" };
+            String[] columnNames = {"identifiant", "Raison Social", "Num Rue", "Nom Rue",
+                    "Ville", "Code Postal", "num Tel", "Adresse mail", "Date Prospection", "Interet ?",
+                    "Commentaire"};
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
             listeA.setModel(model);
             JSPliste.setViewportView(listeA);
             JBody.setVisible(true);
             JSPliste.setVisible(true);
             listeA.setVisible(true);
+        }
+    }catch (modelException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        } catch (daoException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }catch (NumberFormatException ne){
+            JOptionPane.showMessageDialog(null,
+                    "Des lettres ont été rentrés au mauvais endroits verifiez l'id ");
+        }catch (DateTimeParseException de){
+            JOptionPane.showMessageDialog(null,
+                    "Format date incorrect essayez avec le format : jj/mm/aaa");
+        } catch (Exception ex){
+            JOptionPane.showMessageDialog(null,ex.getMessage());
         }
     }
 
