@@ -15,7 +15,7 @@ public class DaoClient {
         String query =
                 "SELECT ID_CLIENT, CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
                         "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
-                        + "NBREMPLOYE_CLIENT FROM CLIENT";
+                        + "NBREMPLOYE_CLIENT FROM CLIENT ORDER BY RAISONSOCIAL_SOCIETE ASC; ";
 
         if (connection == null) {
             throw new daoException("La connexion à la base de données a échoué");
@@ -88,6 +88,7 @@ public class DaoClient {
                 "SELECT ID_CLIENT, CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
                         "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
                         + "NBREMPLOYE_CLIENT FROM CLIENT WHERE RAISONSOCIAL_SOCIETE = ?";
+
         statement = connection.prepareStatement(query);
         statement.setString(1,name);
         ResultSet rs = statement.executeQuery();
@@ -108,7 +109,7 @@ public class DaoClient {
                         villeSociete,telephoneSociete,adressemailSociete,
                         commentaireSociete,chiffreAffaire,nbremployeClient);
             } else {
-                throw new daoException("find by name error ");
+                throw new daoException("find by name error");
             }
     }
 

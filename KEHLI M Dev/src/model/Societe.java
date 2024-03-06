@@ -1,5 +1,7 @@
 package model;
 
+import utilities.VerifMail;
+
 public abstract class  Societe {
 
     private int identifiant;
@@ -13,6 +15,7 @@ public abstract class  Societe {
     private String adresseMail;
     private String commentaire;
 
+    public Societe(){}
     public Societe(int identifiant, String raisonSociale, String numeroRue, String nomRue,
                    String codePostal, String ville, String telephone, String adresseMail, String commentaire) throws modelException {
         setIdentifiant(identifiant);
@@ -125,7 +128,7 @@ public abstract class  Societe {
     }
 
     public void setAdresseMail(String adresseMail) throws modelException {
-        if (adresseMail!=null && adresseMail.matches(".*@.*")) {
+        if (VerifMail.validMail(adresseMail)) {
             this.adresseMail = adresseMail;
         }
         else{

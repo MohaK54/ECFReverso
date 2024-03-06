@@ -3,11 +3,13 @@ package dao;
 import model.Client;
 import model.Prospect;
 import model.modelException;
+import utilities.MyLogg;
 
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 public class DaoProspect {
     public static ArrayList<Prospect> findAll() throws SQLException, IOException, modelException, daoException {
@@ -25,9 +27,11 @@ public class DaoProspect {
                         ",ADRESSEMAIL_SOCIETE" +
                         ",COMMENTAIRE_SOCIETE" +
                         ",INTERET_PROSPECT" +
-                        " FROM PROSPECT";
+                        " FROM PROSPECT" +
+                        " ORDER BY RAISONSOCIAL_SOCIETE ASC;";
 
         if (connection == null) {
+            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échoué DaoProspect -> findAll");
             throw new daoException("La connexion à la base de données a échoué");
         }
         statement = connection.createStatement();
@@ -47,13 +51,7 @@ public class DaoProspect {
             String telephoneSociete = rs.getString("TELEPHONE_SOCIETE");
             String adressemailSociete = rs.getString("ADRESSEMAIL_SOCIETE");
             String commentaireSociete = rs.getString("COMMENTAIRE_SOCIETE");
-            String interetProspect = rs.getString("INTERET_PROSPECT");
-            Boolean interet;
-            if (interetProspect.equals("oui")){
-                interet = true;
-            } else {
-                interet =false;
-            }
+            String interet = rs.getString("INTERET_PROSPECT");
             LocalDate date = dateProspect.toLocalDate();
             Prospect prospect = new Prospect(id,raisonsocialSociete,numerorueSociete,nomrueSociete,codepostalSociete,
                     villeSociete,telephoneSociete,adressemailSociete,commentaireSociete,date,interet);
@@ -72,6 +70,7 @@ public class DaoProspect {
                 "SELECT RAISONSOCIAL_SOCIETE FROM PROSPECT";
 
         if (connection == null) {
+            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échoué DaoProspect -> findAllRS");
             throw new daoException("La connexion à la base de données a échoué");
         }
         statement = connection.createStatement();
@@ -121,13 +120,8 @@ public class DaoProspect {
             String telephoneSociete = rs.getString("TELEPHONE_SOCIETE");
             String adressemailSociete = rs.getString("ADRESSEMAIL_SOCIETE");
             String commentaireSociete = rs.getString("COMMENTAIRE_SOCIETE");
-            String interetProspect = rs.getString("INTERET_PROSPECT");
-            Boolean interet;
-            if (interetProspect.equals("oui")){
-                interet = true;
-            } else {
-                interet =false;
-            }
+            String interet = rs.getString("INTERET_PROSPECT");
+
             LocalDate date = dateProspect.toLocalDate();
             return new Prospect(id,raisonsocialSociete,numerorueSociete,nomrueSociete,codepostalSociete,
                     villeSociete,telephoneSociete,adressemailSociete,commentaireSociete,date,interet);
@@ -161,6 +155,7 @@ public class DaoProspect {
                 ",?" +
                 ",?)" ;
         if (connection == null) {
+            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échoué DaoProspect -> create");
             throw new daoException("La connexion à la base de données a échoué");
         }
         PreparedStatement statement = connection.prepareStatement(query);
@@ -201,6 +196,7 @@ public class DaoProspect {
                 " WHERE ID_PROSPECT =  ?";
 
         if (connection == null) {
+            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échoué DaoProspect -> Update");
             throw new daoException("La connexion à la base de données a échoué");
         }
         PreparedStatement statement = connection.prepareStatement(query);
@@ -231,6 +227,7 @@ public class DaoProspect {
         Connection connection = Connexion.getInstance();
         String query = "DELETE FROM PROSPECT WHERE ID_PROSPECT = ?";
         if (connection == null) {
+            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échoué DaoProspect -> delete");
             throw new daoException("La connexion à la base de données a échoué");
         }
         PreparedStatement statement = connection.prepareStatement(query);

@@ -9,12 +9,14 @@ import model.modelException;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 
 public class Affichage extends JDialog {
@@ -53,16 +55,17 @@ public class Affichage extends JDialog {
             String[] columnNames = {"identifiant", "Raison Social", "Num Rue", "Nom Rue",
                     "Ville", "Code Postal", "num Tel", "Adresse mail", "Chiffre d'affaire",
                     "Nombre d'employé"};
+
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
+
             listeA.setModel(model);
-            JSPliste.setViewportView(listeA);
-            JBody.setVisible(true);
-            JSPliste.setVisible(true);
-            listeA.setVisible(true);
+           // JSPliste.setViewportView(listeA);
+
 
             } else if (entity.equals("Prospect")) {
             ArrayList<Prospect> liste = ControleurAffichage.findAllProspect();
             Object[][] data = new Object[liste.size()][10];
+
             for (int i = 0; i < liste.size(); i++) {
                 Prospect prospect = liste.get(i);
                 data[i][0] = prospect.getIdentifiant();
@@ -75,16 +78,15 @@ public class Affichage extends JDialog {
                 data[i][7] = prospect.getAdresseMail();
                 data[i][8] = prospect.getDateProspection();
                 data[i][9] = prospect.getInteret();
-
             }
+
             String[] columnNames = {"identifiant", "Raison Social", "Num Rue", "Nom Rue",
                     "Ville", "Code Postal", "num Tel", "Adresse mail", "Date Prospection", "Interet ?"};
+
+
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
             listeA.setModel(model);
-            JSPliste.setViewportView(listeA);
-            JBody.setVisible(true);
-            JSPliste.setVisible(true);
-            listeA.setVisible(true);
+
         }
     }catch (modelException ex) {
             JOptionPane.showMessageDialog(null,ex.getMessage());

@@ -4,6 +4,7 @@ package vue;
 import controleur.ControleurFormulaire;
 import dao.daoException;
 import model.modelException;
+import utilities.DateFormat;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -130,13 +131,15 @@ public class Formulaire extends JDialog {
         if (entity.equals("CreateP")){
             lbTitle.setText("Création Prospect");
             modifName();
+            sId.setVisible(false);
+            lbIdent.setVisible(false);
             lbExtra1.setText("Date de Prospection *");
             lbExtra2.setText("Intérêt *");
             btnCreer.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        if (sId.getText().isEmpty() ||
+                        if (
                                 sRS.getText().isEmpty() ||
                                 sNumRue.getText().isEmpty() ||
                                 sNomRue.getText().isEmpty() ||
@@ -151,7 +154,7 @@ public class Formulaire extends JDialog {
                                     "Tout les champs contenant la mention '*' doivent d'être remplis");
                         }
                         else {
-                            int id = Integer.parseInt(sId.getText());
+
                             String raisonSocial = sRS.getText();
                             String numRue = sNumRue.getText();
                             String nomRue = sNomRue.getText();
@@ -162,10 +165,9 @@ public class Formulaire extends JDialog {
                             String commentaire = sCom.getText();
                             String date = sExtra1.getText();
                             String interet = sExtra2.getText();
-                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                            LocalDate localDate = LocalDate.parse(date, formatter);
+                            LocalDate localDate = DateFormat.toLocalDate(date);
 
-                            ControleurFormulaire.creerProspect(id, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
+                            ControleurFormulaire.creerProspect(1, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
                                     commentaire, interet, localDate);
 
                             JOptionPane.showMessageDialog(null, "Prospect crée avec succès");
@@ -280,8 +282,7 @@ public class Formulaire extends JDialog {
                         String commentaire = sCom.getText();
                         String date = sExtra1.getText();
                         String interer = sExtra2.getText();
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                        LocalDate localDate = LocalDate.parse(date, formatter);
+                        LocalDate localDate = DateFormat.toLocalDate(date);
 
                         ControleurFormulaire.updateProspect(id,raisonSocial,numRue,nomRue,ville,codePostal,tel,email,
                                 commentaire,interer,localDate);
@@ -394,7 +395,6 @@ public class Formulaire extends JDialog {
                 }
             });
         }
-
     }
 
     private void notEnable(){

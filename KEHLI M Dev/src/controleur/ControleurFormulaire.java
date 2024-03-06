@@ -51,12 +51,7 @@ public class ControleurFormulaire {
             String comm,
             String interet,
             LocalDate date) throws Exception {
-        boolean interesse = false;
-        if (interet.equals("oui"))
-        {
-            interesse = true;
-        }
-        Prospect prospect = new Prospect(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,date,interesse);
+        Prospect prospect = new Prospect(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,date,interet);
         DaoProspect.create(prospect);
     }
 
@@ -93,12 +88,8 @@ public class ControleurFormulaire {
             String comm,
             String interet,
             LocalDate date) throws Exception {
-        boolean interesse = false;
-        if (interet.equals("oui"))
-        {
-            interesse = true;
-        }
-        Prospect prospect = new Prospect(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,date,interesse);
+
+        Prospect prospect = new Prospect(id,rs,numRue,nomRue,cp,ville,tel,mail,comm,date,interet);
         DaoProspect.update(prospect);
     }
 

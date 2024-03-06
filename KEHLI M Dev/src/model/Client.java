@@ -6,6 +6,7 @@ package model;
 public class Client extends Societe {
     private double chiffreAffaire;
     private int  nbrEmploye ;
+    public Client(){}
     public Client(int id,
                   String raisonSociale,
                   String numeroRue,

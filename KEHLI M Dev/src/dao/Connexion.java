@@ -2,9 +2,9 @@ package dao;
 
 import utilities.MyLogg;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +23,13 @@ public class Connexion {
         dataProperties.load(inputStream);
         String url = dataProperties.getProperty("url");
         // Connexion à la base de données
-        connexion = DriverManager.getConnection(url);
+        try {
+            connexion = DriverManager.getConnection(url);
+        }catch (SQLException sqlException){
+            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échoué : "+sqlException.getMessage());
+            System.out.println("Erreur connexion véifiez les logg pour plus d'information");
+        }
+
 
         // Fermer la connexion lorsque vous avez terminé
         // connexion.close();

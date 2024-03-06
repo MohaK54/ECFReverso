@@ -433,3 +433,56 @@
 05/03/2024 16:03:29 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
 05/03/2024 16:03:29 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
 05/03/2024 16:04:49 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 08:45:37 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 08:45:38 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 08:47:05 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 08:47:05 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:06:12 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:06:13 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:06:42 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:06:42 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:06:56 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 09:07:04 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:07:05 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:07:22 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:07:22 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:07:41 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:07:41 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:08:13 Niveau : SEVERE / Message : Connexion échoué : Échec de la connexion TCP/IP à l'hôte localhost, port 133. Erreur : « Connection refused: getsockopt. Vérifiez les propriétés de connexion. Assurez-vous qu'une instance de SQL Server est en cours d'exécution sur l'hôte et accepte les connexions TCP/IP au port. Vérifiez que les connexions TCP au port ne sont pas bloquées par un pare-feu. ». / Méthode : MyConnexion / Classe : dao.Connexion
+06/03/2024 09:09:01 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:09:01 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 09:11:17 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 10:06:20 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 10:06:20 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 10:09:36 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 15:37:35 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 15:37:35 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 15:39:20 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 16:13:37 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:13:37 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:14:26 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:14:26 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:15:05 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:15:05 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:44:15 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 16:44:16 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:44:17 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:49:57 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 16:49:59 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:50:00 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:50:26 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 16:50:28 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:50:28 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:53:05 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 16:53:08 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:53:09 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:53:56 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 16:54:08 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:54:08 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:54:26 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:54:27 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:55:15 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:55:16 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:55:26 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+06/03/2024 16:55:29 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:55:30 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
