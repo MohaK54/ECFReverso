@@ -18,7 +18,9 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-
+/**
+ * Interface Utilisateur pour afficher les Clients ou Prospects
+ */
 public class Affichage extends JDialog {
 
     private JPanel jBody;

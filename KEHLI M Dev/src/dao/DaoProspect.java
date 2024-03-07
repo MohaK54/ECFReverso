@@ -10,6 +10,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+/**
+ * Le lien entre le Prospect et la base de données
+ */
 public class DaoProspect {
 
     /**
@@ -74,7 +77,7 @@ public class DaoProspect {
     }
 
     /**
-     * Récupère les raisons sociales de tous les prospects de la base de données.
+     * Récupère la raisons sociales de tous les prospects de la base de données.
      *
      * @return Une liste des raisons sociales de tous les prospects.
      * @throws SQLException     Si une erreur SQL survient.

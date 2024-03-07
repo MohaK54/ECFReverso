@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Le lien entre le Client et la base de données
+ */
 public class DaoClient {
     /**
      * Récupère tous les clients de la base de données.
@@ -58,7 +61,7 @@ public class DaoClient {
     }
 
     /**
-     * Récupère les noms sociaux de tous les clients de la base de données.
+     * Récupère la Raison Social de tous les clients de la base de données.
      *
      * @return Une liste de noms sociaux de tous les clients.
      * @throws SQLException    Si une erreur SQL survient.

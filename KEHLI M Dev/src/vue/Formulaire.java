@@ -10,12 +10,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+
+/**
+ * Interface Utlisateur pour afficher le formulaire de création, suppression et modification.
+ */
 public class Formulaire extends JDialog {
     private JPanel panel;
     private JPanel JPlabel;
@@ -49,6 +52,8 @@ public class Formulaire extends JDialog {
     private JPanel JPTitle;
     private JLabel lbTitle;
     private JLabel lbInfo;
+    private JCheckBox cbOui;
+    private JCheckBox cbNon;
 
     public Formulaire(String entity){
         setTitle("Formulaire");
@@ -56,6 +61,8 @@ public class Formulaire extends JDialog {
         // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 800);
         setLocationRelativeTo(null);
+        cbNon.setVisible(false);
+        cbOui.setVisible(false);
         btnAccueil.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -135,6 +142,9 @@ public class Formulaire extends JDialog {
             lbIdent.setVisible(false);
             lbExtra1.setText("Date de Prospection *");
             lbExtra2.setText("Intérêt *");
+            sExtra2.setVisible(false);
+            cbNon.setVisible(true);
+            cbOui.setVisible(true);
             btnCreer.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -148,7 +158,7 @@ public class Formulaire extends JDialog {
                                 sTel.getText().isEmpty() ||
                                 sMail.getText().isEmpty() ||
                                 sExtra1.getText().isEmpty() ||
-                                sExtra2.getText().isEmpty()
+                                        (!cbNon.isSelected() && !cbOui.isSelected())
                         ){
                             JOptionPane.showMessageDialog(null,
                                     "Tout les champs contenant la mention '*' doivent d'être remplis");
@@ -164,7 +174,14 @@ public class Formulaire extends JDialog {
                             String email = sMail.getText();
                             String commentaire = sCom.getText();
                             String date = sExtra1.getText();
-                            String interet = sExtra2.getText();
+                            String interet;
+                            if (cbOui.isSelected())
+                            {
+                                 interet = "oui";
+                            }else {
+                                interet = "non";
+                            }
+
                             LocalDate localDate = DateFormat.toLocalDate(date);
 
                             ControleurFormulaire.creerProspect(1, raisonSocial, numRue, nomRue, ville, codePostal, tel, email,
@@ -265,7 +282,14 @@ public class Formulaire extends JDialog {
             sCom.setText(ControleurFormulaire.prospectSelect.getCommentaire());
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             sExtra1.setText(ControleurFormulaire.prospectSelect.getDateProspection().format(formatter));
-            sExtra2.setText(ControleurFormulaire.prospectSelect.getInteret());
+            sExtra2.setVisible(false);
+            cbOui.setVisible(true);
+            cbNon.setVisible(true);
+            if (ControleurFormulaire.prospectSelect.getInteret().equals("oui")){
+                cbOui.setSelected(true);
+            }else {
+                cbNon.setSelected(true);
+            }
             btnCreer.setText("Update");
             btnCreer.addActionListener(new ActionListener() {
                 @Override
@@ -281,11 +305,16 @@ public class Formulaire extends JDialog {
                         String email = sMail.getText();
                         String commentaire = sCom.getText();
                         String date = sExtra1.getText();
-                        String interer = sExtra2.getText();
+                        String interet;
+                        if (cbOui.isSelected()){
+                            interet = "oui";
+                        }else {
+                            interet = "non";
+                        }
                         LocalDate localDate = DateFormat.toLocalDate(date);
 
                         ControleurFormulaire.updateProspect(id,raisonSocial,numRue,nomRue,ville,codePostal,tel,email,
-                                commentaire,interer,localDate);
+                                commentaire,interet,localDate);
                         JOptionPane.showMessageDialog(null, "Prospect modifié avec succès");
                         ControleurFormulaire.launchAccueil();
                         dispose();

@@ -7,6 +7,9 @@ import model.Prospect;
 import vue.Formulaire;
 import java.time.LocalDate;
 
+/**
+ * Le contrôleur pour la gestion du formulaire de l'application.
+ */
 public class ControleurFormulaire {
     public static Client clientSelect;
     public static Prospect prospectSelect;

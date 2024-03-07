@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Interface Utilisateur Principal (Accueil)
+ */
 public class Accueil extends JDialog {
 
     private JPanel jpTete;

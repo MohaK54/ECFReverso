@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Le contrôleur pour la gestion de l'affichage de la liste de l'application.
+ */
 public class ControleurAffichage {
 
     /**

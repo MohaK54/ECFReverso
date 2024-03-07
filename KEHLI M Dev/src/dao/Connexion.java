@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 
+/**
+ * La connexion à la base de données
+ */
 public class Connexion {
     private static Connection connexion;
 
