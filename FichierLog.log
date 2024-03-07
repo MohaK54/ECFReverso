@@ -522,3 +522,6 @@
 07/03/2024 15:05:27 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
 07/03/2024 15:05:28 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
 07/03/2024 15:12:37 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+07/03/2024 16:30:34 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+07/03/2024 16:30:35 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+07/03/2024 16:34:53 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1

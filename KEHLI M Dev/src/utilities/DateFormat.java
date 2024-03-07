@@ -17,6 +17,7 @@ public class DateFormat {
      * @return La date formatée en chaîne de caractères.
      */
     public static String formatDate(LocalDate date) {
+
         return date.format(FORMATTER);
     }
 
@@ -27,6 +28,7 @@ public class DateFormat {
      * @return La date convertie en LocalDate.
      */
     public static LocalDate toLocalDate(String date) {
+
         return LocalDate.parse(date, FORMATTER);
     }
 }
