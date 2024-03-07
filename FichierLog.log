@@ -486,3 +486,13 @@
 06/03/2024 16:55:26 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
 06/03/2024 16:55:29 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
 06/03/2024 16:55:30 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+06/03/2024 16:57:16 Niveau : INFO / Message : Bdd fermée / Méthode : run / Classe : dao.Connexion$1
+07/03/2024 09:17:42 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+07/03/2024 09:17:43 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+07/03/2024 09:21:17 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+07/03/2024 09:33:05 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+07/03/2024 09:33:06 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+07/03/2024 09:36:37 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+07/03/2024 10:51:50 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+07/03/2024 10:51:51 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+07/03/2024 10:52:01 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1

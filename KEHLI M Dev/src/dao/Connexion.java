@@ -1,8 +1,6 @@
 package dao;
 
 import utilities.MyLogg;
-
-import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,7 +13,12 @@ import java.util.logging.Level;
 public class Connexion {
     private static Connection connexion;
 
-    public static void MyConnexion() throws SQLException, IOException {
+    /**
+     * Initialise une connexion à la base de données en utilisant les informations du fichier de propriétés.
+     *
+     * @throws IOException Si une exception d'entrée/sortie survient lors de la lecture du fichier de propriétés.
+     */
+    public static void MyConnexion() throws IOException {
         // Informations de connexion
         Properties dataProperties = new Properties();
         File fichier = new File("ddb.properties");
@@ -25,16 +28,19 @@ public class Connexion {
         // Connexion à la base de données
         try {
             connexion = DriverManager.getConnection(url);
-        }catch (SQLException sqlException){
-            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échoué : "+sqlException.getMessage());
-            System.out.println("Erreur connexion véifiez les logg pour plus d'information");
+        } catch (SQLException sqlException) {
+            MyLogg.LOGGER.log(Level.SEVERE, "Connexion échouée : " + sqlException.getMessage());
+            System.out.println("Erreur de connexion, veuillez consulter les logs pour plus d'informations.");
         }
-
-
-        // Fermer la connexion lorsque vous avez terminé
-        // connexion.close();
     }
 
+    /**
+     * Récupère une instance de la connexion à la base de données.
+     *
+     * @return La connexion à la base de données.
+     * @throws SQLException Si une exception SQL survient lors de la connexion.
+     * @throws IOException  Si une exception d'entrée/sortie survient lors de la lecture du fichier de propriétés.
+     */
     public static Connection getInstance() throws SQLException, IOException {
         if (connexion == null || connexion.isClosed()) {
             MyConnexion();
@@ -47,7 +53,7 @@ public class Connexion {
             public void run() {
                 if (connexion != null) {
                     try {
-                        MyLogg.LOGGER.info("Bdd fermée");
+                        MyLogg.LOGGER.info("Base de données fermée.");
                         connexion.close();
                     } catch (SQLException e) {
                         MyLogg.LOGGER.log(Level.SEVERE, e.getMessage());

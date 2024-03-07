@@ -1,6 +1,5 @@
 package dao;
 
-import model.Client;
 import model.Prospect;
 import model.modelException;
 import utilities.MyLogg;
@@ -12,9 +11,19 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class DaoProspect {
+
+    /**
+     * Récupère tous les prospects de la base de données.
+     *
+     * @return Une liste de tous les prospects présents dans la base de données.
+     * @throws SQLException     Si une erreur SQL survient.
+     * @throws IOException      Si une erreur d'entrée/sortie survient.
+     * @throws modelException  Si une exception survient dans la couche modèle.
+     * @throws daoException    Si une exception survient lors de la connexion à ma bdd.
+     */
     public static ArrayList<Prospect> findAll() throws SQLException, IOException, modelException, daoException {
         Connection connection = Connexion.getInstance();
-        Statement statement = null;
+        Statement statement;
         String query =
                 "SELECT ID_PROSPECT" +
                         ",DATE_PROSPECT" +
@@ -58,14 +67,23 @@ public class DaoProspect {
             prospects.add(prospect);
         }
 
-        if (statement!=null){
-            statement.close();
-        }
+
+        statement.close();
+
         return prospects;
     }
-    public static ArrayList<String> findAllRS() throws SQLException, IOException, modelException, daoException {
+
+    /**
+     * Récupère les raisons sociales de tous les prospects de la base de données.
+     *
+     * @return Une liste des raisons sociales de tous les prospects.
+     * @throws SQLException     Si une erreur SQL survient.
+     * @throws IOException      Si une erreur d'entrée/sortie survient.
+     * @throws daoException    Si une exception survient lors de la connexion à ma bdd.
+     */
+    public static ArrayList<String> findAllRS() throws SQLException, IOException,  daoException {
         Connection connection = Connexion.getInstance();
-        Statement statement = null;
+        Statement statement ;
         String query =
                 "SELECT RAISONSOCIAL_SOCIETE FROM PROSPECT";
 
@@ -83,16 +101,27 @@ public class DaoProspect {
             String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
             prospects.add(raisonsocialSociete);
         }
-        if (statement!=null){
-            statement.close();
-        }
+
+        statement.close();
+
         return prospects;
     }
 
 
+
+    /**
+     * Recherche un prospect par son nom.
+     *
+     * @param name Le nom du prospect à rechercher.
+     * @return Le prospect correspondant au nom spécifié.
+     * @throws SQLException     Si une erreur SQL survient.
+     * @throws IOException      Si une erreur d'entrée/sortie survient.
+     * @throws modelException  Si une exception survient dans la couche modèle.
+     * @throws daoException    Si une exception survient lors de la connexion à ma bdd.
+     */
     public static Prospect findByName(String name) throws SQLException, IOException, modelException, daoException {
         Connection connection = Connexion.getInstance();
-        PreparedStatement statement = null;
+        PreparedStatement statement ;
         String query =
                 "SELECT ID_PROSPECT" +
                         ",DATE_PROSPECT" +
@@ -105,7 +134,7 @@ public class DaoProspect {
                         ",ADRESSEMAIL_SOCIETE" +
                         ",COMMENTAIRE_SOCIETE" +
                         ",INTERET_PROSPECT" +
-                        " FROM PROSPECT WHERE RAISONSOCIAL_SOCIETE = ?";;
+                        " FROM PROSPECT WHERE RAISONSOCIAL_SOCIETE = ?";
         statement = connection.prepareStatement(query);
         statement.setString(1,name);
         ResultSet rs = statement.executeQuery();
@@ -130,6 +159,15 @@ public class DaoProspect {
         }
     }
 
+
+    /**
+     * Crée un nouveau prospect dans la base de données.
+     *
+     * @param prospect Le prospect à créer.
+     * @throws SQLException     Si une erreur SQL survient.
+     * @throws IOException      Si une erreur d'entrée/sortie survient.
+     * @throws daoException    Si une exception survient lors de la connexion à ma bdd.
+     */
     public static void create(Prospect prospect) throws SQLException, IOException, daoException {
         Connection connection = Connexion.getInstance();
         String query = "INSERT INTO PROSPECT" +
@@ -180,6 +218,15 @@ public class DaoProspect {
         statement.close();
     }
 
+
+    /**
+     * Met à jour les informations d'un prospect dans la base de données.
+     *
+     * @param prospect Le prospect avec les nouvelles informations.
+     * @throws SQLException     Si une erreur SQL survient.
+     * @throws IOException      Si une erreur d'entrée/sortie survient.
+     * @throws daoException    Si une exception survient lors de la connexion à ma bdd.
+     */
     public static void update(Prospect prospect) throws SQLException, IOException, daoException {
         Connection connection = Connexion.getInstance();
         String query = "UPDATE PROSPECT " +
@@ -223,6 +270,15 @@ public class DaoProspect {
 
     }
 
+
+    /**
+     * Supprime un prospect de la base de données.
+     *
+     * @param id L'identifiant du prospect à supprimer.
+     * @throws SQLException     Si une erreur SQL survient.
+     * @throws IOException      Si une erreur d'entrée/sortie survient.
+     * @throws daoException    Si une exception survient lors de la connexion à ma bdd.
+     */
     public static void delete(int id) throws SQLException, IOException, daoException {
         Connection connection = Connexion.getInstance();
         String query = "DELETE FROM PROSPECT WHERE ID_PROSPECT = ?";
