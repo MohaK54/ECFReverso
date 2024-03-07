@@ -188,7 +188,7 @@ public class Formulaire extends JDialog {
                                 "Des lettres ont été rentrés au mauvais endroits verifiez l'id ");
                     }catch (DateTimeParseException de){
                         JOptionPane.showMessageDialog(null,
-                                "Format date incorrect essayez avec le format : jj/mm/aaa");
+                                "Format date incorrect essayez avec le format : jj/mm/aaaa");
                     } catch (Exception ex){
                         JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
