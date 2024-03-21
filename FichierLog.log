@@ -525,3 +525,290 @@
 07/03/2024 16:30:34 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
 07/03/2024 16:30:35 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
 07/03/2024 16:34:53 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+11/03/2024 09:31:35 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+11/03/2024 09:31:35 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+11/03/2024 13:11:31 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+11/03/2024 16:28:12 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+11/03/2024 16:28:13 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+14/03/2024 09:52:01 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+14/03/2024 09:52:02 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:41:31 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:41:32 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:41:48 Niveau : SEVERE / Message : Le jeu de résultat n'a pas de ligne actuelle. / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 10:41:48 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 10:42:13 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:42:13 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:42:29 Niveau : SEVERE / Message : Le jeu de résultat n'a pas de ligne actuelle. / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 10:42:29 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 10:42:34 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:42:34 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:42:51 Niveau : SEVERE / Message : Le jeu de résultat n'a pas de ligne actuelle. / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 10:42:51 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 10:42:55 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:42:55 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:43:06 Niveau : SEVERE / Message : Le jeu de résultat n'a pas de ligne actuelle. / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 10:43:06 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 10:45:01 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:45:02 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:45:12 Niveau : SEVERE / Message : L'index 1 est hors limites. / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 10:45:12 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 10:46:26 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:46:27 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:46:40 Niveau : SEVERE / Message : Le jeu de résultat n'a pas de ligne actuelle. / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 10:48:51 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:48:51 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:49:31 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 10:51:49 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:51:50 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 10:52:41 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 11:01:20 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:01:21 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:01:49 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 11:06:08 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:06:09 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:06:51 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 11:33:18 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:33:19 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:35:10 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:35:11 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:35:18 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 11:35:18 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 11:43:38 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:43:38 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:44:45 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:44:45 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:45:05 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 11:45:08 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 11:48:46 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:48:46 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:48:59 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 11:50:04 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:50:04 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:50:09 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 11:53:29 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 11:53:38 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:53:39 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 11:53:41 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 11:53:45 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 13:20:32 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 13:20:32 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 13:20:48 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 13:22:58 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 13:22:59 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 13:23:41 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Samsung). / Méthode : create / Classe : dao.DaoClient
+20/03/2024 14:03:36 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:03:37 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:04:31 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Boulangerie). / Méthode : create / Classe : dao.DaoClient
+20/03/2024 14:04:31 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:18:38 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:18:39 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:19:13 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Boulangerie). / Méthode : create / Classe : dao.DaoClient
+20/03/2024 14:19:19 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Boulangerie). / Méthode : create / Classe : dao.DaoClient
+20/03/2024 14:19:23 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:22:15 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:22:15 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:22:49 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Boulangerie). / Méthode : create / Classe : dao.DaoClient
+20/03/2024 14:23:28 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:23:51 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:23:52 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:23:55 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 14:23:58 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:24:03 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:24:04 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:24:28 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 14:24:29 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:24:32 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:24:32 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:24:42 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:24:42 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:24:53 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 14:29:16 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:29:16 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:29:25 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 14:29:29 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:32:18 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:32:19 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:32:26 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 14:32:28 Niveau : SEVERE / Message : find By name impossible, données table incompatible avec l'objet / Méthode : actionPerformed / Classe : vue.Accueil$5
+20/03/2024 14:32:28 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:33:23 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:33:24 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:33:32 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 14:33:35 Niveau : SEVERE / Message : find By name impossible, données table incompatible avec l'objet / Méthode : actionPerformed / Classe : vue.Accueil$5
+20/03/2024 14:33:35 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:33:37 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:33:38 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:33:52 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Boulangerie). / Méthode : update / Classe : dao.DaoClient
+20/03/2024 14:33:52 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:33:56 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:33:56 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:34:09 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:37:00 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:37:01 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:37:23 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Boulangerie). / Méthode : update / Classe : dao.DaoClient
+20/03/2024 14:37:23 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:38:41 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:38:42 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:38:54 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:39:31 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:39:32 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:39:46 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Boulangerie). / Méthode : update / Classe : dao.DaoClient
+20/03/2024 14:40:03 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 14:40:06 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:45:14 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:45:14 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:45:24 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 14:45:25 Niveau : SEVERE / Message : find By name impossible, données table incompatible avec l'objet / Méthode : actionPerformed / Classe : vue.Accueil$5
+20/03/2024 14:45:25 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:45:35 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:45:35 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:48:00 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:48:00 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:48:19 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 14:48:21 Niveau : SEVERE / Message : find By name impossible, données table incompatible avec l'objet / Méthode : actionPerformed / Classe : vue.Accueil$5
+20/03/2024 14:48:21 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:48:24 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:48:24 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:52:07 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:52:07 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:52:10 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 14:52:11 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:53:17 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:53:17 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:53:19 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 14:53:22 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 14:53:44 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:53:44 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 14:53:46 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 15:06:41 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:06:41 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:06:55 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 15:06:57 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 15:07:09 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:07:09 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:07:21 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 15:08:33 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:08:34 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:08:38 Niveau : SEVERE / Message : find by name error  / Méthode : actionPerformed / Classe : vue.Accueil$4
+20/03/2024 15:08:40 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 15:10:49 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:10:50 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:11:27 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 15:12:52 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:12:52 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:13:17 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Samsung FR). / Méthode : create / Classe : dao.DaoClient
+20/03/2024 15:13:28 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 15:14:18 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:14:18 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:14:41 Niveau : SEVERE / Message : Violation de la contrainte UNIQUE KEY « UQ_RAISONSOCIAL_SOCI_CLIENT ». Impossible d'insérer une clé en double dans l'objet « dbo.CLIENT ». Valeur de clé dupliquée : (Samsung FR). / Méthode : create / Classe : dao.DaoClient
+20/03/2024 15:14:44 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 15:15:42 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:15:43 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 15:16:15 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 16:10:38 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:10:38 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:10:52 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 16:15:15 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:15:15 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:15:24 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 16:46:03 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:46:03 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:46:05 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findAll / Classe : dao.DaoClient
+20/03/2024 16:46:14 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 16:55:32 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:55:33 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:55:55 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 16:55:57 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:55:58 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:56:20 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 16:56:23 Niveau : SEVERE / Message : find By name impossible, données table incompatible avec l'objet / Méthode : actionPerformed / Classe : vue.Accueil$5
+20/03/2024 16:56:23 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+20/03/2024 16:57:34 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:57:34 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+20/03/2024 16:57:43 Niveau : WARNING / Message : Vérifiez les donneés dans la bdd, Le code postal est incorrect / Méthode : findByName / Classe : dao.DaoClient
+20/03/2024 16:57:45 Niveau : SEVERE / Message : find By name impossible, données table incompatible avec l'objet / Méthode : actionPerformed / Classe : vue.Accueil$5
+20/03/2024 16:57:45 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 09:53:27 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 09:53:28 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 09:55:02 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 10:40:00 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 10:40:01 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 10:41:31 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 10:43:39 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 10:43:39 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 10:43:49 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 10:45:10 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 10:45:11 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 10:45:19 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:00:46 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:00:47 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:00:49 Niveau : SEVERE / Message : find All impossible, données table incompatible avec l'objet Le code postal est incorrect / Méthode : <init> / Classe : vue.Affichage
+21/03/2024 11:00:50 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:00:53 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:00:53 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:01:31 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:03:41 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:03:41 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:03:48 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:07:06 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:07:06 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:11:23 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:11:27 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:11:27 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:11:38 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:12:01 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:12:01 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:12:06 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:13:36 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:13:36 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:13:39 Niveau : SEVERE / Message : find All impossible, données table incompatible avec l'objet La Raison social doit-être remplis / Méthode : <init> / Classe : vue.Affichage
+21/03/2024 11:13:41 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:13:49 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:13:49 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:13:52 Niveau : SEVERE / Message : find All impossible, données table incompatible avec l'objet La Raison social doit-être remplis / Méthode : <init> / Classe : vue.Affichage
+21/03/2024 11:13:53 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:15:45 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:15:46 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:18:43 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:18:43 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:27:22 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:33:36 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:33:37 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:33:41 Niveau : SEVERE / Message : find All impossible, données table incompatible avec l'objet Le code postal est incorrect / Méthode : <init> / Classe : vue.Affichage
+21/03/2024 11:33:45 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:33:50 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:33:50 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:33:59 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:34:02 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:34:02 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:34:56 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 11:35:31 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:35:31 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 11:51:32 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 15:21:35 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:21:36 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:22:07 Niveau : SEVERE / Message : Le code postal est incorrect / Méthode : actionPerformed / Classe : vue.Formulaire$3
+21/03/2024 15:22:15 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:22:15 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:22:55 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:22:55 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:25:50 Niveau : SEVERE / Message : Le code postal est incorrect / Méthode : actionPerformed / Classe : vue.Formulaire$3
+21/03/2024 15:25:52 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 15:28:48 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:28:48 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:29:00 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 15:29:17 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:29:18 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:29:34 Niveau : SEVERE / Message : Le code postal est incorrect / Méthode : actionPerformed / Classe : vue.Formulaire$3
+21/03/2024 15:29:37 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 15:32:39 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:32:39 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:45:44 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:45:44 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:46:09 Niveau : SEVERE / Message : find All impossible, données table incompatible avec l'objet Le code postal est incorrect / Méthode : <init> / Classe : vue.Affichage
+21/03/2024 15:46:11 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 15:46:31 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:46:31 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:46:51 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+21/03/2024 15:48:17 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+21/03/2024 15:48:17 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main

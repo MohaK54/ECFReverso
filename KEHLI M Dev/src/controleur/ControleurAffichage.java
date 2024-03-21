@@ -10,6 +10,8 @@ import vue.Affichage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Le contrôleur pour la gestion de l'affichage de la liste de l'application.
@@ -35,8 +37,9 @@ public class ControleurAffichage {
      * @throws daoException   Si une exception DAO survient.
      * @throws modelException Si une exception liée au modèle survient.
      */
-    public static ArrayList<Client> findAllClient() throws SQLException, IOException, daoException, modelException {
+    public static ArrayList<Client> findAllClient() throws Exception {
         return DaoClient.findAll();
+
     }
 
     /**
@@ -48,8 +51,9 @@ public class ControleurAffichage {
      * @throws daoException   Si une exception DAO survient.
      * @throws modelException Si une exception liée au modèle survient.
      */
-    public static ArrayList<Prospect> findAllProspect() throws SQLException, IOException, daoException, modelException {
+    public static ArrayList<Prospect> findAllProspect() throws Exception {
         return DaoProspect.findAll();
+
     }
 
     /**

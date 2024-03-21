@@ -126,6 +126,7 @@ public abstract class Societe {
      * @return Le numéro de rue de la société.
      */
     public String getNumeroRue() {
+
         return numeroRue;
     }
 

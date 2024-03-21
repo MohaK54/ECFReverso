@@ -1,6 +1,8 @@
 package dao;
 
 import utilities.MyLogg;
+
+import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -33,7 +35,8 @@ public class Connexion {
             connexion = DriverManager.getConnection(url);
         } catch (SQLException sqlException) {
             MyLogg.LOGGER.log(Level.SEVERE, "Connexion échouée : " + sqlException.getMessage());
-            System.out.println("Erreur de connexion, veuillez consulter les logs pour plus d'informations.");
+            JOptionPane.showMessageDialog(null,"Oups, erreur de notre côté veuillez réssayer ultérieurement");
+            System.exit(1);
         }
     }
 

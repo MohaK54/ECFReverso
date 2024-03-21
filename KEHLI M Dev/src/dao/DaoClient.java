@@ -5,6 +5,7 @@ import model.modelException;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 /**
  * Le lien entre le Client et la base de données
@@ -19,45 +20,51 @@ public class DaoClient {
      * @throws modelException Si une exception liée au modèle survient.
      * @throws daoException   Si une exception DAO survient.
      */
-    public static ArrayList<Client> findAll() throws SQLException, IOException, modelException, daoException {
-        Connection connection = Connexion.getInstance();
-        Statement statement;
-        String query =
-                "SELECT ID_CLIENT, CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
-                        "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
-                        + "NBREMPLOYE_CLIENT FROM CLIENT ORDER BY RAISONSOCIAL_SOCIETE ASC; ";
+    public static ArrayList<Client> findAll() throws Exception {
 
-        if (connection == null) {
-            throw new daoException("La connexion à la base de données a échoué");
-        }
-        statement = connection.createStatement();
-        if (statement == null) {
-            throw new daoException("Impossible de créer le statement pour exécuter la requête");
-        }
-        ResultSet rs = statement.executeQuery(query);
-        ArrayList<Client> clients = new ArrayList<>();
-        while (rs.next()) {
-            int id = rs.getInt("ID_CLIENT");
-            double chiffreAffaire = rs.getDouble("CHIFFREAFFAIRE_CLIENT");
-            String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
-            String numerorueSociete = rs.getString("NUMERORUE_SOCIETE");
-            String nomrueSociete = rs.getString("NOMRUE_SOCIETE");
-            String villeSociete = rs.getString("VILLE_SOCIETE");
-            String codepostalSociete = rs.getString("CODEPOSTAL_SOCIETE");
-            String telephoneSociete = rs.getString("TELEPHONE_SOCIETE");
-            String adressemailSociete = rs.getString("ADRESSEMAIL_SOCIETE");
-            String commentaireSociete = rs.getString("COMMENTAIRE_SOCIETE");
-            int nbremployeClient = rs.getInt("NBREMPLOYE_CLIENT");
-            Client client = new Client(id, raisonsocialSociete, numerorueSociete,
-                    nomrueSociete, codepostalSociete,
-                    villeSociete, telephoneSociete, adressemailSociete,
-                    commentaireSociete, chiffreAffaire, nbremployeClient);
-            clients.add(client);
-        }
+        try (Connection connection = Connexion.getInstance();
+             Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT ID_CLIENT, CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
+                    "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
+                    + "NBREMPLOYE_CLIENT FROM CLIENT "))
+        {
+            ArrayList<Client> clients = new ArrayList<>();
+            while (rs.next()) {
 
-        statement.close();
+                int id = rs.getInt("ID_CLIENT");
+                double chiffreAffaire = rs.getDouble("CHIFFREAFFAIRE_CLIENT");
+                String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
+                String numerorueSociete = rs.getString("NUMERORUE_SOCIETE");
+                String nomrueSociete = rs.getString("NOMRUE_SOCIETE");
+                String villeSociete = rs.getString("VILLE_SOCIETE");
+                String codepostalSociete = rs.getString("CODEPOSTAL_SOCIETE");
+                String telephoneSociete = rs.getString("TELEPHONE_SOCIETE");
+                String adressemailSociete = rs.getString("ADRESSEMAIL_SOCIETE");
+                String commentaireSociete = rs.getString("COMMENTAIRE_SOCIETE");
+                int nbremployeClient = rs.getInt("NBREMPLOYE_CLIENT");
+                Client client = new Client(
+                        id,
+                        raisonsocialSociete.substring(0, 1).toUpperCase()+raisonsocialSociete.substring(1),
+                        numerorueSociete,
+                        nomrueSociete,
+                        codepostalSociete,
+                        villeSociete,
+                        telephoneSociete,
+                        adressemailSociete,
+                        commentaireSociete,
+                        chiffreAffaire,
+                        nbremployeClient);
+                clients.add(client);
+            }
 
-        return clients;
+            statement.close();
+
+            return clients;
+        }catch(IOException | SQLException e){
+            throw new daoException(Level.SEVERE,"find All impossible, vérifiez votre base de données "+e.getMessage());
+        }catch (modelException me) {
+            throw new daoException(Level.SEVERE,"find All impossible, données table incompatible avec l'objet " + me.getMessage());
+        }
     }
 
     /**
@@ -68,31 +75,24 @@ public class DaoClient {
      * @throws IOException     Si une erreur d'entrée/sortie survient.
      * @throws daoException   Si une exception DAO survient.
      */
-    public static ArrayList<String> findAllRS() throws SQLException, IOException, daoException {
-        Connection connection = Connexion.getInstance();
-        Statement statement;
-        String query =
-                "SELECT RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
-                        "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
-                        + "NBREMPLOYE_CLIENT FROM CLIENT";
+    public static ArrayList<String> findAllRS() throws Exception {
 
-        if (connection == null) {
-            throw new daoException("La connexion à la base de données a échoué");
-        }
-        statement = connection.createStatement();
-        if (statement == null) {
-            throw new daoException("Impossible de créer le statement pour exécuter la requête");
-        }
-        ResultSet rs = statement.executeQuery(query);
-        ArrayList<String> raisonSocials = new ArrayList<>();
-        while (rs.next()) {
-            String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
-            raisonSocials.add(raisonsocialSociete);
-        }
+        try(Connection connection = Connexion.getInstance();
+        Statement statement = connection.createStatement()){
 
-        statement.close();
+            ResultSet rs = statement.executeQuery("SELECT RAISONSOCIAL_SOCIETE FROM CLIENT");
+            ArrayList<String> raisonSocials = new ArrayList<>();
+            while (rs.next()) {
+                String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
+                raisonSocials.add(raisonsocialSociete);
+            }
 
-        return raisonSocials;
+            statement.close();
+
+            return raisonSocials;
+        }catch(IOException | SQLException e){
+            throw new daoException(Level.SEVERE, "find All RS impossible, vérifiez votre base de données "+e.getMessage());
+        }
     }
 
     /**
@@ -105,35 +105,38 @@ public class DaoClient {
      * @throws modelException Si une exception liée au modèle survient.
      * @throws daoException   Si une exception DAO survient.
      */
-    public static Client findByName(String name) throws SQLException, IOException, modelException, daoException {
-        Connection connection = Connexion.getInstance();
-        PreparedStatement statement;
-        String query =
-                "SELECT ID_CLIENT, CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
-                        "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
-                        + "NBREMPLOYE_CLIENT FROM CLIENT WHERE RAISONSOCIAL_SOCIETE = ?";
+    public static Client findByName(String name) throws Exception {
+        try(Connection connection = Connexion.getInstance();
+        PreparedStatement statement = connection.prepareStatement("SELECT ID_CLIENT, CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE,NUMERORUE_SOCIETE,NOMRUE_SOCIETE," +
+                "VILLE_SOCIETE,CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, COMMENTAIRE_SOCIETE,"
+                + "NBREMPLOYE_CLIENT FROM CLIENT WHERE RAISONSOCIAL_SOCIETE = ?")) {
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("ID_CLIENT");
+                double chiffreAffaire = rs.getDouble("CHIFFREAFFAIRE_CLIENT");
+                String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
+                String numerorueSociete = rs.getString("NUMERORUE_SOCIETE");
+                String nomrueSociete = rs.getString("NOMRUE_SOCIETE");
+                String villeSociete = rs.getString("VILLE_SOCIETE");
+                String codepostalSociete = rs.getString("CODEPOSTAL_SOCIETE");
+                String telephoneSociete = rs.getString("TELEPHONE_SOCIETE");
+                String adressemailSociete = rs.getString("ADRESSEMAIL_SOCIETE");
+                String commentaireSociete = rs.getString("COMMENTAIRE_SOCIETE");
+                int nbremployeClient = rs.getInt("NBREMPLOYE_CLIENT");
 
-        statement = connection.prepareStatement(query);
-        statement.setString(1, name);
-        ResultSet rs = statement.executeQuery();
-        if (rs.next()) {
-            int id = rs.getInt("ID_CLIENT");
-            double chiffreAffaire = rs.getDouble("CHIFFREAFFAIRE_CLIENT");
-            String raisonsocialSociete = rs.getString("RAISONSOCIAL_SOCIETE");
-            String numerorueSociete = rs.getString("NUMERORUE_SOCIETE");
-            String nomrueSociete = rs.getString("NOMRUE_SOCIETE");
-            String villeSociete = rs.getString("VILLE_SOCIETE");
-            String codepostalSociete = rs.getString("CODEPOSTAL_SOCIETE");
-            String telephoneSociete = rs.getString("TELEPHONE_SOCIETE");
-            String adressemailSociete = rs.getString("ADRESSEMAIL_SOCIETE");
-            String commentaireSociete = rs.getString("COMMENTAIRE_SOCIETE");
-            int nbremployeClient = rs.getInt("NBREMPLOYE_CLIENT");
-            return new Client(id, raisonsocialSociete, numerorueSociete,
-                    nomrueSociete, codepostalSociete,
-                    villeSociete, telephoneSociete, adressemailSociete,
-                    commentaireSociete, chiffreAffaire, nbremployeClient);
-        } else {
-            throw new daoException("find by name error");
+                return new Client(id, raisonsocialSociete, numerorueSociete,
+                        nomrueSociete, codepostalSociete,
+                        villeSociete, telephoneSociete, adressemailSociete,
+                        commentaireSociete, chiffreAffaire, nbremployeClient);
+            } else{
+                throw new daoException(Level.INFO, "Aucun Client n'a été trouvé");
+            }
+        }catch(IOException | SQLException e){
+            throw new daoException(Level.SEVERE,"find By name impossible, vérifiez votre base de données "+e.getMessage());
+        }
+        catch (modelException me) {
+            throw new daoException(Level.SEVERE,"find By name impossible, données table incompatible avec l'objet "+me.getMessage());
         }
     }
 
@@ -145,15 +148,23 @@ public class DaoClient {
      * @throws IOException     Si une erreur d'entrée/sortie survient.
      * @throws daoException   Si une exception DAO survient.
      */
-    public static void create(Client client) throws SQLException, IOException, daoException {
+    public static void create(Client client) throws Exception {
+        try(
         PreparedStatement statement = getStatement("INSERT INTO CLIENT (CHIFFREAFFAIRE_CLIENT, RAISONSOCIAL_SOCIETE, NUMERORUE_SOCIETE, " +
                 "NOMRUE_SOCIETE, VILLE_SOCIETE, CODEPOSTAL_SOCIETE, TELEPHONE_SOCIETE, ADRESSEMAIL_SOCIETE, " +
-                "COMMENTAIRE_SOCIETE, NBREMPLOYE_CLIENT) VALUES (?,?,?,?,?,?,?,?,?,?) ",client);
-        int lignesModifiees = statement.executeUpdate();
-        if (lignesModifiees <= 0) {
-            throw new daoException("erreur d'insert into");
+                "COMMENTAIRE_SOCIETE, NBREMPLOYE_CLIENT) VALUES (?,?,?,?,?,?,?,?,?,?) ",client)) {
+            statement.executeUpdate();
+        }catch(SQLException e){
+            if (e.getErrorCode()==2627)
+            {
+                throw new daoException(Level.INFO,"La raison social existe déja");
+            } else{
+                throw new daoException(Level.SEVERE,"erreur Create Client " +e.getMessage()+ " error : "+e.getErrorCode());
+            }
+        }catch (IOException ie){
+            throw new daoException(Level.SEVERE,"erreur Create Prospect " +ie.getMessage() );
         }
-        statement.close();
+
     }
 
     /**
@@ -164,7 +175,8 @@ public class DaoClient {
      * @throws IOException     Si une erreur d'entrée/sortie survient.
      * @throws daoException   Si une exception DAO survient.
      */
-    public static void update(Client client) throws SQLException, IOException, daoException {
+    public static void update(Client client) throws Exception {
+        try(
         PreparedStatement statement = getStatement("UPDATE CLIENT " +
                 "   SET CHIFFREAFFAIRE_CLIENT = ?" +
                 ",RAISONSOCIAL_SOCIETE = ?" +
@@ -176,14 +188,21 @@ public class DaoClient {
                 ",ADRESSEMAIL_SOCIETE = ?" +
                 ",COMMENTAIRE_SOCIETE = ?" +
                 ",NBREMPLOYE_CLIENT = ?" +
-                " WHERE ID_CLIENT =  ?",client);
+                " WHERE ID_CLIENT =  ?",client);){
 
         statement.setInt(11, client.getIdentifiant());
-        int lignesModifiees = statement.executeUpdate();
-        if (lignesModifiees <= 0) {
-            throw new daoException("erreur d'update Client");
+        statement.executeUpdate();
+        }catch(SQLException e){
+            if (e.getErrorCode()==2627)
+            {
+                throw new daoException(Level.INFO,"La raison social existe déja");
+            } else{
+                throw new daoException(Level.SEVERE,"erreur Update Client " +e.getMessage()+ " error : "+e.getErrorCode());
+            }
+        }catch (IOException ie){
+            throw new daoException(Level.SEVERE,"erreur Update Client " +ie.getMessage() );
         }
-        statement.close();
+
 
     }
 
@@ -197,16 +216,12 @@ public class DaoClient {
      * @throws IOException     Si une erreur d'entrée/sortie survient.
      * @throws daoException   Si une exception DAO survient.
      */
-    private static PreparedStatement getStatement(String query, Client client) throws SQLException, IOException, daoException {
+    private static PreparedStatement getStatement(String query, Client client) throws Exception {
         Connection connection = Connexion.getInstance();
 
-        if (connection == null) {
-            throw new daoException("La connexion à la base de données a échoué");
-        }
+
         PreparedStatement statement = connection.prepareStatement(query);
-        if (statement == null) {
-            throw new daoException("Impossible de créer le statement pour exécuter la requête");
-        }
+
         statement.setDouble(1, client.getChiffreAffaire());
         statement.setString(2, client.getRaisonSociale());
         statement.setString(3, client.getNumeroRue());
@@ -220,7 +235,6 @@ public class DaoClient {
         return statement;
     }
 
-
     /**
      * Supprime un client de la base de données.
      *
@@ -229,18 +243,15 @@ public class DaoClient {
      * @throws IOException     Si une erreur d'entrée/sortie survient.
      * @throws daoException   Si une exception DAO survient.
      */
-    public static void delete(int id) throws SQLException, IOException, daoException {
+    public static void delete(int id) throws Exception {
+        try(
         Connection connection = Connexion.getInstance();
-        String query = "DELETE FROM CLIENT WHERE ID_CLIENT = ?";
-        if (connection == null) {
-            throw new daoException("La connexion à la base de données a échoué");
+        PreparedStatement statement = connection.prepareStatement("DELETE FROM CLIENT WHERE ID_CLIENT = ?")) {
+
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        }catch(IOException | SQLException e){
+            throw new daoException(Level.SEVERE, "Delete impossible, vérifiez votre base de données "+e.getMessage());
         }
-        PreparedStatement statement = connection.prepareStatement(query);
-        if (statement == null) {
-            throw new daoException("create : Impossible de créer le statement pour exécuter la requête");
-        }
-        statement.setInt(1, id);
-        statement.executeUpdate();
-        statement.close();
     }
 }

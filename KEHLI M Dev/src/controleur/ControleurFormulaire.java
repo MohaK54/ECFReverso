@@ -91,19 +91,21 @@ public class ControleurFormulaire {
     /**
      * Sélectionne un client.
      *
-     * @param client Le client à sélectionner.
+     * @param raisonSocial Le client à sélectionner.
      */
-    public static void selecClient(Client client) {
-        clientSelect = client;
+    public static void selecClient(String raisonSocial) throws Exception {
+
+        clientSelect = DaoClient.findByName(raisonSocial);
     }
 
     /**
      * Sélectionne un prospect.
      *
-     * @param prospect Le prospect à sélectionner.
+     * @param raisonSocial Le prospect à sélectionner.
      */
-    public static void selectProspect(Prospect prospect) {
-        prospectSelect = prospect;
+    public static void selectProspect(String raisonSocial) throws Exception {
+
+        prospectSelect = DaoProspect.findByName(raisonSocial);
     }
 
     /**
@@ -178,7 +180,6 @@ public class ControleurFormulaire {
     public static void deleteClient(int id) throws Exception {
         DaoClient.delete(id);
     }
-
     /**
      * Supprime un prospect de la base de données.
      *

@@ -6,6 +6,8 @@ import dao.daoException;
 import model.Client;
 import model.Prospect;
 import model.modelException;
+import utilities.DateFormat;
+import utilities.MyLogg;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +18,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.logging.Level;
 
 /**
  * Interface Utilisateur pour afficher les Clients ou Prospects
@@ -40,6 +44,7 @@ public class Affichage extends JDialog {
         try {
             if (entity.equals("Client")) {
             ArrayList<Client> liste = ControleurAffichage.findAllClient();
+                liste.sort(Comparator.comparing(Client::getRaisonSociale));
             Object[][] data = new Object[liste.size()][10];
             for (int i = 0; i < liste.size(); i++) {
                 Client client = liste.get(i);
@@ -61,11 +66,12 @@ public class Affichage extends JDialog {
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
 
             listeA.setModel(model);
-           // JSPliste.setViewportView(listeA);
+
 
 
             } else if (entity.equals("Prospect")) {
             ArrayList<Prospect> liste = ControleurAffichage.findAllProspect();
+                liste.sort(Comparator.comparing(Prospect::getRaisonSociale));
             Object[][] data = new Object[liste.size()][10];
 
             for (int i = 0; i < liste.size(); i++) {
@@ -78,7 +84,7 @@ public class Affichage extends JDialog {
                 data[i][5] = prospect.getCodePostal();
                 data[i][6] = prospect.getTelephone();
                 data[i][7] = prospect.getAdresseMail();
-                data[i][8] = prospect.getDateProspection();
+                data[i][8] = DateFormat.formatDate(prospect.getDateProspection());
                 data[i][9] = prospect.getInteret();
             }
 
@@ -88,24 +94,21 @@ public class Affichage extends JDialog {
 
             DefaultTableModel model = new DefaultTableModel(data, columnNames);
             listeA.setModel(model);
-
         }
-    }catch (modelException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        } catch (daoException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        }catch (NumberFormatException ne){
-            JOptionPane.showMessageDialog(null,
-                    "Des lettres ont été rentrés au mauvais endroits verifiez l'id ");
-        }catch (DateTimeParseException de){
-            JOptionPane.showMessageDialog(null,
-                    "Format date incorrect essayez avec le format : jj/mm/aaa");
+    }catch (daoException ex) {
+            if (ex.getLevel()==Level.SEVERE){
+                MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                JOptionPane.showMessageDialog(null,"Oups, ce n'est pas vous, c'est nous ! "
+                        + "veuillez réessayer ultérieurement");
+                System.exit(1);
+            } else {
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
         } catch (Exception ex){
-            JOptionPane.showMessageDialog(null,ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Oups, ce n'est pas vous, c'est nous ! "
+                    + "veuillez réessayer ultérieurement");
+            MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+            System.exit(1);
         }
     }
 
@@ -118,7 +121,6 @@ public class Affichage extends JDialog {
             }
         });
     }
-
 
     private void createUIComponents() {
 

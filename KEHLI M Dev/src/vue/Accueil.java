@@ -3,12 +3,14 @@ package vue;
 import controleur.ControleurAccueil;
 import dao.daoException;
 import model.modelException;
+import utilities.MyLogg;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 /**
  * Interface Utilisateur Principal (Accueil)
@@ -43,38 +45,14 @@ public class Accueil extends JDialog {
         btnCreateClient.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    ControleurAccueil.launchFormulaire("CreateC");
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (daoException ex) {
-                    throw new RuntimeException(ex);
-                } catch (modelException ex) {
-                    throw new RuntimeException(ex);
-                }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                }
+                ControleurAccueil.launchFormulaire("CreateC");
                 dispose();
             }
-        });
+            });
         btnCreer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    ControleurAccueil.launchFormulaire("CreateP");
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (daoException ex) {
-                    throw new RuntimeException(ex);
-                } catch (modelException ex) {
-                    throw new RuntimeException(ex);
-                }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                }
+                ControleurAccueil.launchFormulaire("CreateP");
                 dispose();
             }
         });
@@ -89,16 +67,18 @@ public class Accueil extends JDialog {
                         dispose();
                     }
 
-                } catch (modelException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
                 } catch (daoException ex) {
+                    if (ex.getLevel()==Level.SEVERE){
+                        JOptionPane.showMessageDialog(null,"Oups, ce n'est pas vous, c'est nous!"
+                                + "veuillez réessayer ultérieurement");
+                        System.exit(1);
+                    } else {
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }
+                } catch (Exception ex){
                     JOptionPane.showMessageDialog(null,ex.getMessage());
-                }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                    System.exit(1);
                 }
             }
         });
@@ -108,21 +88,40 @@ public class Accueil extends JDialog {
                 try {
                     String raisSocial = JOptionPane.showInputDialog(ControleurAccueil.disp("Prospect").toArray());
                     if(raisSocial!=null){
-                        ControleurAccueil.choiceProspect(raisSocial);
+                        try {
+                            ControleurAccueil.choiceProspect(raisSocial);
+                        }catch (daoException de){
+                            if (de.getLevel()==Level.SEVERE){
+                                MyLogg.LOGGER.log(Level.SEVERE,de.getMessage());
+                                JOptionPane.showMessageDialog(null,"Veuillez nous excuser" +
+                                        " une erreur s'est produite");
+                                System.exit(1);
+                            }else {
+                                JOptionPane.showMessageDialog(null,de.getMessage());
+                            }
+                        }catch (Exception ex){
+                            MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                            JOptionPane.showMessageDialog(null,"Veuillez nous excuser" +
+                                    " une erreur s'est produite");
+                            System.exit(1);
+                        }
                         ControleurAccueil.launchFormulaire("UpdateP");
                         dispose();
                     }
-
-                } catch (modelException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (daoException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+            }catch (daoException de){
+                    if (de.getLevel()==Level.SEVERE){
+                        MyLogg.LOGGER.log(Level.SEVERE,de.getMessage());
+                        JOptionPane.showMessageDialog(null,"Veuillez nous excuser" +
+                                " une erreur s'est produite");
+                        System.exit(1);
+                    }else {
+                        JOptionPane.showMessageDialog(null,de.getMessage());
+                    }
                 }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                    JOptionPane.showMessageDialog(null,"Veuillez nous excuser" +
+                            " une erreur s'est produite");
+                    System.exit(1);
                 }
             }
         });
@@ -137,16 +136,20 @@ public class Accueil extends JDialog {
                         dispose();
                     }
 
-                } catch (modelException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
                 } catch (daoException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    if (ex.getLevel()==Level.SEVERE){
+                        JOptionPane.showMessageDialog(null,"Veuillez nous excuser, " +
+                                "une erreur de notre côté");
+                        MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                        System.exit(1);
+                    }else {
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }
+                }catch (Exception ex) {
+                    MyLogg.LOGGER.log(Level.SEVERE, ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Veuillez nous excuser" +
+                            " une erreur s'est produite");
+                    System.exit(1);
                 }
             }
         });
@@ -160,14 +163,20 @@ public class Accueil extends JDialog {
                         ControleurAccueil.launchFormulaire("DeleteP");
                         dispose();
                     }
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
                 } catch (daoException ex) {
-                    throw new RuntimeException(ex);
-                } catch (modelException ex) {
-                    throw new RuntimeException(ex);
+                    if (ex.getLevel()==Level.SEVERE){
+                        JOptionPane.showMessageDialog(null,"Veuillez nous excuser, " +
+                                "une erreur de notre côté");
+                        MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                        System.exit(1);
+                    }else {
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }
+                }catch (Exception ex) {
+                    MyLogg.LOGGER.log(Level.SEVERE, ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Veuillez nous excuser" +
+                            " une erreur s'est produite");
+                    System.exit(1);
                 }
             }
         });
@@ -179,19 +188,7 @@ public class Accueil extends JDialog {
         btnAffichage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    ControleurAccueil.launchAffichage("Prospect");
-                } catch (modelException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (daoException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                }
+                ControleurAccueil.launchAffichage("Prospect");
                 dispose();
             }
         });
@@ -208,15 +205,9 @@ public class Accueil extends JDialog {
         btnFindAllClient.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
+                ControleurAccueil.launchAffichage("Client");
+                dispose();
 
-                    ControleurAccueil.launchAffichage("Client");
-                    dispose();
-                } catch (modelException | daoException | SQLException | IOException ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                } catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
-                }
             }
         });
 

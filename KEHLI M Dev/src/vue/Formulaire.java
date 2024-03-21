@@ -5,6 +5,7 @@ import controleur.ControleurFormulaire;
 import dao.daoException;
 import model.modelException;
 import utilities.DateFormat;
+import utilities.MyLogg;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.logging.Level;
 
 
 /**
@@ -72,6 +74,7 @@ public class Formulaire extends JDialog {
         });
 
         if (entity.equals("CreateC")) {
+
             modifName();
             lbExtra1.setText("Chiffre d'affaire *");
             lbExtra2.setText("Nombre d'employé *");
@@ -116,14 +119,14 @@ public class Formulaire extends JDialog {
                             dispose();
                         }
 
-                    } catch (modelException ex) {
+                    }
+                    catch (daoException ex) {if (ex.getLevel()== Level.SEVERE){
+                        MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                        JOptionPane.showMessageDialog(null,"Désolé une erreur s'est produite");
+                        System.exit(1);
+                    } else {
                         JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (IOException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (daoException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }
                     }catch (NumberFormatException ne){
                         JOptionPane.showMessageDialog(null,
                                 "Des lettres ont été rentrés au mauvais endroits, " +
@@ -151,19 +154,18 @@ public class Formulaire extends JDialog {
                     try {
                         if (
                                 sRS.getText().isEmpty() ||
-                                sNumRue.getText().isEmpty() ||
-                                sNomRue.getText().isEmpty() ||
-                                sCP.getText().isEmpty() ||
-                                sVille.getText().isEmpty() ||
-                                sTel.getText().isEmpty() ||
-                                sMail.getText().isEmpty() ||
-                                sExtra1.getText().isEmpty() ||
+                                        sNumRue.getText().isEmpty() ||
+                                        sNomRue.getText().isEmpty() ||
+                                        sCP.getText().isEmpty() ||
+                                        sVille.getText().isEmpty() ||
+                                        sTel.getText().isEmpty() ||
+                                        sMail.getText().isEmpty() ||
+                                        sExtra1.getText().isEmpty() ||
                                         (!cbNon.isSelected() && !cbOui.isSelected())
-                        ){
+                        ) {
                             JOptionPane.showMessageDialog(null,
                                     "Tout les champs contenant la mention '*' doivent d'être remplis");
-                        }
-                        else {
+                        } else {
 
                             String raisonSocial = sRS.getText();
                             String numRue = sNumRue.getText();
@@ -175,10 +177,9 @@ public class Formulaire extends JDialog {
                             String commentaire = sCom.getText();
                             String date = sExtra1.getText();
                             String interet;
-                            if (cbOui.isSelected())
-                            {
-                                 interet = "oui";
-                            }else {
+                            if (cbOui.isSelected()) {
+                                interet = "oui";
+                            } else {
                                 interet = "non";
                             }
 
@@ -192,14 +193,17 @@ public class Formulaire extends JDialog {
                             dispose();
                         }
 
-                    } catch (modelException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (IOException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (daoException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }catch (modelException me){
+                        JOptionPane.showMessageDialog(null,me.getMessage());
+                    }
+                    catch (daoException ex) {
+                            if (ex.getLevel()== Level.SEVERE){
+                                MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                                JOptionPane.showMessageDialog(null,"Désolé une erreur s'est produite");
+                                System.exit(1);
+                            } else {
+                                JOptionPane.showMessageDialog(null,ex.getMessage());
+                            }
                     }catch (NumberFormatException ne){
                         JOptionPane.showMessageDialog(null,
                                 "Des lettres ont été rentrés au mauvais endroits verifiez l'id ");
@@ -207,7 +211,9 @@ public class Formulaire extends JDialog {
                         JOptionPane.showMessageDialog(null,
                                 "Format date incorrect essayez avec le format : jj/mm/aaaa");
                     } catch (Exception ex){
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                        MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                        JOptionPane.showMessageDialog(null,"Désolé une erreur s'est produite");
+                        System.exit(1);
                     }
                 }
             });
@@ -248,19 +254,19 @@ public class Formulaire extends JDialog {
                         JOptionPane.showMessageDialog(null, "Client modifié avec succès");
                         ControleurFormulaire.launchAccueil();
                         dispose();
-                    } catch (modelException ex) {
+                    } catch (daoException ex) {if (ex.getLevel()== Level.SEVERE){
+                        MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                        JOptionPane.showMessageDialog(null,"Désolé une erreur s'est produite");
+                        System.exit(1);
+                    } else {
                         JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (IOException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (daoException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (NumberFormatException ne){
+                    }
+                    }catch (NumberFormatException ne){
                         JOptionPane.showMessageDialog(null,
                                 "Des lettres ont été rentrés au mauvais endroits, " +
                                         "verifiez le chiffre d'affaire, l'id et le nombre d'employé");
-                    }catch (Exception ex){
+                    }
+                    catch (Exception ex){
                         JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 }
@@ -280,8 +286,7 @@ public class Formulaire extends JDialog {
             sTel.setText(ControleurFormulaire.prospectSelect.getTelephone());
             sMail.setText(ControleurFormulaire.prospectSelect.getAdresseMail());
             sCom.setText(ControleurFormulaire.prospectSelect.getCommentaire());
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            sExtra1.setText(ControleurFormulaire.prospectSelect.getDateProspection().format(formatter));
+            sExtra1.setText(DateFormat.formatDate(ControleurFormulaire.prospectSelect.getDateProspection()));
             sExtra2.setVisible(false);
             cbOui.setVisible(true);
             cbNon.setVisible(true);
@@ -318,23 +323,24 @@ public class Formulaire extends JDialog {
                         JOptionPane.showMessageDialog(null, "Prospect modifié avec succès");
                         ControleurFormulaire.launchAccueil();
                         dispose();
-                    } catch (modelException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (IOException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    } catch (daoException ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                    }catch (daoException ex) {
+                        if (ex.getLevel()== Level.SEVERE){
+                            MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                            JOptionPane.showMessageDialog(null,"Désolé une erreur s'est produite");
+                            System.exit(1);
+                        } else {
+                            JOptionPane.showMessageDialog(null,ex.getMessage());
+                        }
                     }catch (NumberFormatException ne){
                         JOptionPane.showMessageDialog(null,
                                 "Des lettres ont été rentrés au mauvais endroits verifiez l'id ");
                     }catch (DateTimeParseException de){
                         JOptionPane.showMessageDialog(null,
-                                "Format date incorrect essayez avec le format : jj/mm/aaa");
-                    }
-                    catch (Exception ex){
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
+                                "Format date incorrect essayez avec le format : jj/mm/aaaa");
+                    } catch (Exception ex){
+                        MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
+                        JOptionPane.showMessageDialog(null,"Désolé une erreur s'est produite");
+                        System.exit(1);
                     }
                 }
             });
@@ -368,12 +374,21 @@ public class Formulaire extends JDialog {
                             JOptionPane.showMessageDialog(null,"Client supprimé avec succés");
                             dispose();
                             ControleurFormulaire.launchAccueil();
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
-                        } catch (Exception ex) {
-                            throw new RuntimeException(ex);
+                        }catch (daoException de){
+                            if (de.getLevel()==Level.SEVERE){
+                                JOptionPane.showMessageDialog(null,"Erreur de notre côté," +
+                                        " Veuillez réssayer ultérieurement");
+                                System.exit(1);
+                                MyLogg.LOGGER.log(Level.SEVERE,de.getMessage());
+                            } else {
+                                JOptionPane.showMessageDialog(null,de.getMessage());
+                            }
+                        }
+                        catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null,"Erreur de notre côté," +
+                                    " Veuillez réssayer ultérieurement");
+                            System.exit(1);
+                            MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
                         }
                     }
                     else ControleurFormulaire.launchAccueil();
@@ -410,14 +425,21 @@ public class Formulaire extends JDialog {
                             JOptionPane.showMessageDialog(null,"Prospect supprimé avec succés");
                             dispose();
                             ControleurFormulaire.launchAccueil();
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
-                        } catch (daoException ex) {
-                            throw new RuntimeException(ex);
-                        } catch (Exception ex) {
-                            throw new RuntimeException(ex);
+                        } catch (daoException de){
+                            if (de.getLevel()==Level.SEVERE){
+                                JOptionPane.showMessageDialog(null,"Erreur de notre côté," +
+                                        " Veuillez réssayer ultérieurement");
+                                System.exit(1);
+                                MyLogg.LOGGER.log(Level.SEVERE,de.getMessage());
+                            } else {
+                                JOptionPane.showMessageDialog(null,de.getMessage());
+                            }
+                        }
+                        catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null,"Erreur de notre côté," +
+                                    " Veuillez réssayer ultérieurement");
+                            System.exit(1);
+                            MyLogg.LOGGER.log(Level.SEVERE,ex.getMessage());
                         }
                     }
                     else ControleurFormulaire.launchAccueil();

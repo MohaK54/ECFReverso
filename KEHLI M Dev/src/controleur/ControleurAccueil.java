@@ -3,11 +3,8 @@ package controleur;
 import dao.DaoClient;
 import dao.DaoProspect;
 import dao.daoException;
-import model.Client;
-import model.Prospect;
 import model.modelException;
 import vue.Accueil;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -35,7 +32,7 @@ public class ControleurAccueil {
      * @throws daoException    Si une exception DAO survient.
      * @throws modelException Si une exception liée au modèle survient.
      */
-    public static ArrayList<String> disp(String entity) throws SQLException, IOException, daoException, modelException {
+    public static ArrayList<String> disp(String entity) throws Exception {
         if (entity.equals("Client")) {
             return DaoClient.findAllRS();
         } else {
@@ -44,43 +41,11 @@ public class ControleurAccueil {
     }
 
     /**
-     * Recherche un client par son nom.
-     *
-     * @param nom Le nom du client à rechercher.
-     * @return Le client trouvé, s'il existe, sinon null.
-     * @throws SQLException    Si une exception SQL survient.
-     * @throws IOException     Si une exception d'entrée/sortie survient.
-     * @throws daoException    Si une exception DAO survient.
-     * @throws modelException Si une exception liée au modèle survient.
-     */
-    public static Client findClient(String nom) throws SQLException, IOException, daoException, modelException {
-        return DaoClient.findByName(nom);
-    }
-
-    /**
-     * Recherche un prospect par son nom.
-     *
-     * @param nom Le nom du prospect à rechercher.
-     * @return Le prospect trouvé, s'il existe, sinon null.
-     * @throws SQLException    Si une exception SQL survient.
-     * @throws IOException     Si une exception d'entrée/sortie survient.
-     * @throws daoException    Si une exception DAO survient.
-     * @throws modelException Si une exception liée au modèle survient.
-     */
-    public static Prospect findProspect(String nom) throws SQLException, IOException, daoException, modelException {
-        return DaoProspect.findByName(nom);
-    }
-
-    /**
      * Lance le formulaire correspondant à l'option spécifiée.
      *
      * @param option L'option sélectionnée.
-     * @throws SQLException    Si une exception SQL survient.
-     * @throws IOException     Si une exception d'entrée/sortie survient.
-     * @throws daoException    Si une exception DAO survient.
-     * @throws modelException Si une exception liée au modèle survient.
      */
-    public static void launchFormulaire(String option) throws SQLException, IOException, daoException, modelException {
+    public static void launchFormulaire(String option) {
         ControleurFormulaire.init(option);
     }
 
@@ -88,12 +53,8 @@ public class ControleurAccueil {
      * Lance l'affichage correspondant à l'option spécifiée.
      *
      * @param option L'option sélectionnée.
-     * @throws SQLException    Si une exception SQL survient.
-     * @throws IOException     Si une exception d'entrée/sortie survient.
-     * @throws daoException    Si une exception DAO survient.
-     * @throws modelException Si une exception liée au modèle survient.
      */
-    public static void launchAffichage(String option) throws SQLException, IOException, daoException, modelException {
+    public static void launchAffichage(String option) {
         ControleurAffichage.init(option);
     }
 
@@ -106,8 +67,8 @@ public class ControleurAccueil {
      * @throws daoException    Si une exception DAO survient.
      * @throws modelException Si une exception liée au modèle survient.
      */
-    public static void choiceClient(String raisonSocial) throws SQLException, IOException, daoException, modelException {
-        ControleurFormulaire.selecClient(findClient(raisonSocial));
+    public static void choiceClient(String raisonSocial) throws Exception {
+        ControleurFormulaire.selecClient(raisonSocial);
     }
 
     /**
@@ -119,7 +80,7 @@ public class ControleurAccueil {
      * @throws daoException    Si une exception DAO survient.
      * @throws modelException Si une exception liée au modèle survient.
      */
-    public static void choiceProspect(String raisonSocial) throws SQLException, IOException, daoException, modelException {
-        ControleurFormulaire.selectProspect(findProspect(raisonSocial));
+    public static void choiceProspect(String raisonSocial) throws Exception {
+        ControleurFormulaire.selectProspect(raisonSocial);
     }
 }
