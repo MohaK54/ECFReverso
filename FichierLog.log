@@ -812,3 +812,39 @@
 21/03/2024 15:46:51 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
 21/03/2024 15:48:17 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
 21/03/2024 15:48:17 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:27:27 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:27:27 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:27:30 Niveau : SEVERE / Message : find All impossible, données table incompatible avec l'objet Le code postal est incorrect / Méthode : <init> / Classe : vue.Affichage
+22/03/2024 10:27:32 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:29:24 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:29:24 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:31:13 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:31:15 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:31:16 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:36:03 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:36:05 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:36:05 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:40:50 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:40:53 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:40:53 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:41:26 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:41:38 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:41:38 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:42:32 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:44:18 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:44:18 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:44:44 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:44:44 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:45:23 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:45:26 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:45:26 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:46:02 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:46:04 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:46:05 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:46:18 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:46:20 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:46:21 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:46:35 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1
+22/03/2024 10:47:25 Niveau : INFO / Message : Début du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:47:25 Niveau : INFO / Message : Fin du programme / Méthode : main / Classe : application.Main
+22/03/2024 10:47:37 Niveau : INFO / Message : Base de données fermée. / Méthode : run / Classe : dao.Connexion$1

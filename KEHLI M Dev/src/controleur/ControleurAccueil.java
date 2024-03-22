@@ -19,6 +19,7 @@ public class ControleurAccueil {
      * Initialise l'interface utilisateur de l'accueil.
      */
     public static void init() {
+
         accueil.setVisible(true);
     }
 

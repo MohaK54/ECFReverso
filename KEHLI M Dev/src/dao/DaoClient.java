@@ -157,7 +157,8 @@ public class DaoClient {
         }catch(SQLException e){
             if (e.getErrorCode()==2627)
             {
-                throw new daoException(Level.INFO,"La raison social existe déja");
+                throw new daoException(Level.INFO,"La raison social existe déja ");
+
             } else{
                 throw new daoException(Level.SEVERE,"erreur Create Client " +e.getMessage()+ " error : "+e.getErrorCode());
             }
@@ -195,8 +196,9 @@ public class DaoClient {
         }catch(SQLException e){
             if (e.getErrorCode()==2627)
             {
-                throw new daoException(Level.INFO,"La raison social existe déja");
+                throw new daoException(Level.INFO,"La raison social existe déja ");
             } else{
+
                 throw new daoException(Level.SEVERE,"erreur Update Client " +e.getMessage()+ " error : "+e.getErrorCode());
             }
         }catch (IOException ie){
