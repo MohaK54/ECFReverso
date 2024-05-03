@@ -6,7 +6,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
@@ -20,10 +19,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install default-jdk
 
+      - name: Install JUnit 5
+        run: |
+          wget -O junit-platform-console-standalone.jar https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.2/junit-platform-console-standalone-1.7.2.jar
+
       - name: Compile Project
         run: javac -sourcepath KEHLI_M_Dev/src -d out KEHLI_M_Dev/src/**/*.java
-
-
 
       - name: Create Artifacts Directory if not exists
         run: mkdir -p artifacts
@@ -40,5 +41,5 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
