@@ -21,7 +21,8 @@ jobs:
           sudo apt-get install default-jdk
 
       - name: Compile Project
-        run: javac -sourcepath "KEHLI\ M\ Dev/src" -d out "KEHLI\ M\ Dev/src/**/*.java"
+        run: javac -sourcepath 'KEHLI M Dev/src' -d out 'KEHLI\ M\ Dev/src/**/*.java'
+
 
 
       - name: Create Artifacts Directory if not exists
