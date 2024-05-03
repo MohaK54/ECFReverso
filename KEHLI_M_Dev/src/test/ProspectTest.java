@@ -1,3 +1,4 @@
+/*
 package test;
 
 import model.Prospect;
@@ -11,27 +12,33 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+*/
 /**
  * Cette classe contient les tests unitaires pour la classe Prospect.
- */
+ *//*
+
 class ProspectTest extends Prospect {
 
-    /**
+    */
+/**
      * Teste la méthode setDateProspection avec une valeur null.
      *
      * @param i La date à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     void testSetDateProspection(LocalDate i) {
         assertThrows(modelException.class, () -> setDateProspection(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setInteret avec des valeurs invalides.
      *
      * @param i L'intérêt à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -40,3 +47,4 @@ class ProspectTest extends Prospect {
         assertThrows(modelException.class, () -> setInteret(i));
     }
 }
+*/

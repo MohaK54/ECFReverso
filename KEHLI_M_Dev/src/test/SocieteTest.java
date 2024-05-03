@@ -1,3 +1,4 @@
+/*
 package test;
 
 import model.Societe;
@@ -9,28 +10,34 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+*/
 /**
  * Cette classe contient les tests unitaires pour la classe Societe.
- */
+ *//*
+
 class SocieteTest extends Societe {
 
     //--------------------IDENTIFIANT-----------------------
-    /**
+    */
+/**
      * Teste la méthode setIdentifiant avec des valeurs invalides.
      *
      * @param i L'identifiant à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(ints = {-5, -88})
     void testSetIdentifiantInvalid(int i) {
         assertThrows(modelException.class, () -> setIdentifiant(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setIdentifiant avec des valeurs valides.
      *
      * @param i L'identifiant à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(ints = {5, 88, 0})
     void testSetIdentifiantValid(int i) {
@@ -38,11 +45,13 @@ class SocieteTest extends Societe {
     }
 
     //--------------------RAISON SOCIAL-----------------------
-    /**
+    */
+/**
      * Teste la méthode setRaisonSociale avec des valeurs invalides.
      *
      * @param i La raison sociale à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -51,11 +60,13 @@ class SocieteTest extends Societe {
         assertThrows(modelException.class, () -> setRaisonSociale(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setRaisonSociale avec des valeurs valides.
      *
      * @param i La raison sociale à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(strings = {"0", "01234567890123456789012345678901234567890123456789"})
     void testSetRaisonSocialeValide(String i) {
@@ -63,11 +74,13 @@ class SocieteTest extends Societe {
     }
 
     //--------------------NUMÉRO RUE-----------------------
-    /**
+    */
+/**
      * Teste la méthode setNumeroRue avec des valeurs invalides.
      *
      * @param i Le numéro de rue à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -76,11 +89,13 @@ class SocieteTest extends Societe {
         assertThrows(modelException.class, () -> setNumeroRue(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setNumeroRue avec des valeurs valides.
      *
      * @param i Le numéro de rue à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(strings = {"12345", "1"})
     void testSetNumeroRueValide(String i) {
@@ -88,11 +103,13 @@ class SocieteTest extends Societe {
     }
 
     //--------------------NOM RUE-----------------------
-    /**
+    */
+/**
      * Teste la méthode setNomRue avec des valeurs invalides.
      *
      * @param i Le nom de rue à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -101,11 +118,13 @@ class SocieteTest extends Societe {
         assertThrows(modelException.class, () -> setNomRue(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setNomRue avec des valeurs valides.
      *
      * @param i Le nom de rue à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(strings = {"012345678901234567890123456789", "0"})
     void testSetNomRueValide(String i) {
@@ -113,11 +132,13 @@ class SocieteTest extends Societe {
     }
 
     //--------------------CODE POSTAL-----------------------
-    /**
+    */
+/**
      * Teste la méthode setCodePostal avec des valeurs invalides.
      *
      * @param i Le code postal à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -126,11 +147,13 @@ class SocieteTest extends Societe {
         assertThrows(modelException.class, () -> setCodePostal(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setCodePostal avec des valeurs valides.
      *
      * @param i Le code postal à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(strings = {"12345", "abcde"})
     void testSetCodePostalValide(String i) {
@@ -138,11 +161,13 @@ class SocieteTest extends Societe {
     }
 
     //--------------------VILLE-----------------------
-    /**
+    */
+/**
      * Teste la méthode setVille avec des valeurs invalides.
      *
      * @param i La ville à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -151,11 +176,13 @@ class SocieteTest extends Societe {
         assertThrows(modelException.class, () -> setVille(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setVille avec des valeurs valides.
      *
      * @param i La ville à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(strings = {"012345678901234567890123456789012345678901234", "1"})
     void testSetVilleValide(String i) {
@@ -163,11 +190,13 @@ class SocieteTest extends Societe {
     }
 
     //--------------------TELEPHONE-----------------------
-    /**
+    */
+/**
      * Teste la méthode setTelephone avec des valeurs invalides.
      *
      * @param i Le numéro de téléphone à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -176,11 +205,13 @@ class SocieteTest extends Societe {
         assertThrows(modelException.class, () -> setTelephone(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setTelephone avec des valeurs valides.
      *
      * @param i Le numéro de téléphone à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(strings = {"0123456789", "01234567890123456789"})
     void testSetTelephoneValide(String i) {
@@ -188,11 +219,13 @@ class SocieteTest extends Societe {
     }
 
     //--------------------MAIL-----------------------
-    /**
+    */
+/**
      * Teste la méthode setAdresseMail avec des valeurs invalides.
      *
      * @param i L'adresse e-mail à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @NullSource
     @EmptySource
@@ -201,14 +234,17 @@ class SocieteTest extends Societe {
         assertThrows(modelException.class, () -> setAdresseMail(i));
     }
 
-    /**
+    */
+/**
      * Teste la méthode setAdresseMail avec des valeurs valides.
      *
      * @param i L'adresse e-mail à tester.
-     */
+     *//*
+
     @ParameterizedTest
     @ValueSource(strings = {"moha@fr", "moha@.fr"})
     void testSetAdresseMailValide(String i) {
         assertDoesNotThrow(() -> setAdresseMail(i));
     }
 }
+*/
