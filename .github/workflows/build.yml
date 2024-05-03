@@ -21,7 +21,7 @@ jobs:
           sudo apt-get install default-jdk
 
       - name: Compile Project
-        run: javac -sourcepath 'KEHLI M Dev/src' -d out 'KEHLI\ M\ Dev/src/**/*.java'
+        run: javac -sourcepath KEHLI_M_Dev/src -d out KEHLI_M_Dev/src/**/*.java
 
 
 
