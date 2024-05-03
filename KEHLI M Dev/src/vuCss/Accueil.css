@@ -1,0 +1,128 @@
+.navbar-link {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  #clientsSection,
+  #prospectsSection {
+    display: none;
+  }
+
+  #choice {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  #crud {
+    margin: 5%;
+    width: 80%;
+  }
+
+  td {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #e4e4e4;
+}
+th {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+
+  a{
+    color: black;
+  }
+
+  a:hover{
+    color: hwb(216 20% 22%);
+  }
+
+  nav{
+    background-color: rgb(126, 165, 115);
+  }
+
+  .navbar-link a:hover{
+    color: black;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .navbar-link a{
+    text-align: center;
+    width: 100%;
+    font-size: 200%;
+  }
+  main{
+    background-color: #fffcf7;
+  }
+  .page-footer{
+    background-color: rgb(126, 165, 115) ;
+  }
+  button{
+    border: 1px solid rgb(126, 165, 115);
+    background-color: white;
+    color: rgb(126, 165, 115);
+  }
+  button a{
+    color: rgb(126, 165, 115);
+  }
+  button a:hover{
+    color: white;
+  }
+  button:hover{
+    background-color: rgb(126, 165, 115);
+    color: white;
+  }
+
+  @media only screen and (max-width: 600px) {
+    td {
+        border: none;
+    }
+    th {
+        border: none;
+    }
+    
+    tr{ 
+        border: none;
+        padding: 0 !important;
+        display: flex;
+    }
+
+    thead tr {
+        border-right: 3px solid rgb(126, 165, 115);
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    tbody td{
+        font-weight:bolder;
+        background-color: #ffffff;
+    }
+    tbody{
+        background-color: rgb(126, 165, 115) !important;
+        border-top-right-radius: 7%;
+        border-bottom-right-radius: 7%;
+    }
+    table{
+        border: 3px solid rgb(126, 165, 115);
+        border-radius: 5%;
+        justify-content: flex-start !important;
+    }
+}
+
